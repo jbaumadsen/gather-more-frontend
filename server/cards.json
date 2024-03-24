@@ -1,0 +1,877 @@
+
+{
+name: 'Squee, the Immortal',
+manaCost: '{1}{R}{R}',
+cmc: 3,
+colors: [ 'R' ],
+colorIdentity: [ 'R' ],
+type: 'Legendary Creature — Goblin',
+supertypes: [ 'Legendary' ],
+types: [ 'Creature' ],
+subtypes: [ 'Goblin' ],
+rarity: 'Rare',
+set: 'MUL',
+setName: 'Multiverse Legends',
+text: 'You may cast Squee, the Immortal from your graveyard or from exile.',
+flavor: 'Squee had never wanted to be a king or a symbol of defiance against Phyrexians. Naturally, he found himself as both.\n' +
+  '—*Heroes of the Second Invasion*',
+artist: 'Eshpur',
+number: '22',
+power: '2',
+toughness: '1',
+layout: 'normal',
+multiverseid: '611327',
+imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=611327&type=card',
+variations: [
+  '917bde65-3303-5522-b494-ae9d82f95073',
+  '0c26ea7d-8014-5197-acbb-9bef7fe85fe1',
+  'c7aa3eff-be48-5fd3-99e5-6128b73e82ca'
+],
+rulings: [
+  {
+    date: '2018-04-27',
+    text: "Squee's ability doesn't prevent you from casting Squee from any other zone."
+  },
+  {
+    date: '2018-04-27',
+    text: 'You must follow the normal timing permissions and restrictions and pay its cost to cast Squee from your graveyard or from exile.'
+  }
+],
+foreignNames: [
+  {
+    name: 'Squee der Unsterbliche',
+    text: 'Du kannst Squee den Unsterblichen aus deinem Friedhof oder dem Exil wirken.',
+    type: 'Legendäre Kreatur — Goblin',
+    flavor: '„Squee war nie daran gelegen, ein König oder ein Symbol des Widerstands gegen die Phyrexianer zu sein. Unweigerlich wurde er zu beidem."\n' +  
+      '—*Helden der Zweiten Invasion*',
+    imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=611392&type=card',
+    language: 'German',
+    multiverseid: 611392
+  },
+  {
+    name: 'Squee, el Inmortal',
+    text: 'Puedes lanzar a Squee, el Inmortal desde tu cementerio o desde el exilio.',
+    type: 'Criatura legendaria — Trasgo',
+    flavor: '"Squee nunca quiso ser un rey ni un símbolo de resistencia contra los pirexianos, pero, naturalmente, acabó siendo las dos cosas".\n' +        
+      '—*Héroes de la Segunda Invasión*',
+    imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=611457&type=card',
+    language: 'Spanish',
+    multiverseid: 611457
+  },
+  {
+    name: "Skwi, l'immortel",
+    text: "Vous pouvez lancer Skwi, l'immortel depuis votre cimetière ou depuis l'exil.",
+    type: 'Créature légendaire : gobelin',
+    flavor: "« Skwi n'avait jamais souhaité être un roi ou un symbole de défi face aux Phyrexians. Naturellement, il finit par devenir les deux. »\n" +     
+      '—*Héros de la Deuxième Invasion*',
+    imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=611522&type=card',
+    language: 'French',
+    multiverseid: 611522
+  },
+  {
+    name: "Squee, l'Immortale",
+    text: "Puoi lanciare Squee, l'Immortale dal tuo cimitero o dall'esilio.",
+    type: 'Creatura Leggendaria — Goblin',
+    flavor: '"Squee non aveva mai desiderato essere un re o un simbolo della sfida contro i Phyrexiani. Ovviamente, si ritrovò a essere entrambi."\n' +     
+      '—*Eroi della Seconda Invasione*',
+    imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=611587&type=card',
+    language: 'Italian',
+    multiverseid: 611587
+  },
+  {
+    name: '不死身、スクイー',
+    text: 'あなたはあなたの墓地や追放領域にある不死身、スクイーを唱えてもよい。',
+    type: '伝説のクリーチャー — ゴブリン',
+    flavor: '「スクイーは、王やファイレクシア軍への反抗の象徴となることを望んでいなかった。しかし、気づいたら彼はその両方になっていた。」\n' +
+      '――*「第二次侵攻の英雄たち」*',
+    imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=611652&type=card',
+    language: 'Japanese',
+    multiverseid: 611652
+  },
+  {
+    name: 'Squee, o Imortal',
+    text: 'Você pode conjurar Squee, o Imortal, do seu cemitério ou do exílio.',
+    type: 'Criatura Lendária — Goblin',
+    flavor: 'Squee nunca quis ser um rei ou um símbolo da resistência contra os Phyrexianos. Naturalmente, ele se tornou os dois.\n' +
+      '—* Heróis da Segunda Invasão*',
+    imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=611782&type=card',
+    language: 'Portuguese (Brazil)',
+    multiverseid: 611782
+  },
+  {
+    name: '不死斯奎',
+    text: '你可以从你的坟墓场或放逐区中施放不死斯奎。',
+    type: '传奇生物 ～鬼怪',
+    flavor: '「斯奎从未想过称王，亦未要当反抗非瑞克西亚人的榜样。而如今他自然坐拥两者。」\n～*《二次战役英雄》*',
+    imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=611912&type=card',
+    language: 'Chinese Simplified',
+    multiverseid: 611912
+  }
+],
+printings: [ 'DOM', 'MUL', 'NCC', 'PDOM' ],
+originalText: 'You may cast Squee, the Immortal from your graveyard or from exile.',
+originalType: 'Legendary Creature — Goblin',
+legalities: [
+  { format: 'Commander', legality: 'Legal' },
+  { format: 'Duel', legality: 'Legal' },
+  { format: 'Explorer', legality: 'Legal' },
+  { format: 'Gladiator', legality: 'Legal' },
+  { format: 'Historic', legality: 'Legal' },
+  { format: 'Historicbrawl', legality: 'Legal' },
+  { format: 'Legacy', legality: 'Legal' },
+  { format: 'Modern', legality: 'Legal' },
+  { format: 'Oathbreaker', legality: 'Legal' },
+  { format: 'Penny', legality: 'Legal' },
+  { format: 'Pioneer', legality: 'Legal' },
+  { format: 'Vintage', legality: 'Legal' }
+],
+id: '1b3bb193-43ab-5307-8c87-2c35b90d6423'
+}
+{
+name: 'Squee, the Immortal',
+manaCost: '{1}{R}{R}',
+cmc: 3,
+colors: [ 'R' ],
+colorIdentity: [ 'R' ],
+type: 'Legendary Creature — Goblin',
+supertypes: [ 'Legendary' ],
+types: [ 'Creature' ],
+subtypes: [ 'Goblin' ],
+rarity: 'Rare',
+set: 'MUL',
+setName: 'Multiverse Legends',
+text: 'You may cast Squee, the Immortal from your graveyard or from exile.',
+flavor: '"You gotta be pretty smart to live long as me, but not being able to die helps."',
+artist: 'Svetlin Velinov',
+number: '87',
+power: '2',
+toughness: '1',
+layout: 'normal',
+variations: [
+  '1b3bb193-43ab-5307-8c87-2c35b90d6423',
+  '0c26ea7d-8014-5197-acbb-9bef7fe85fe1',
+  'c7aa3eff-be48-5fd3-99e5-6128b73e82ca'
+],
+rulings: [
+  {
+    date: '2018-04-27',
+    text: "Squee's ability doesn't prevent you from casting Squee from any other zone."
+  },
+  {
+    date: '2018-04-27',
+    text: 'You must follow the normal timing permissions and restrictions and pay its cost to cast Squee from your graveyard or from exile.'
+  }
+],
+printings: [ 'DOM', 'MUL', 'NCC', 'PDOM' ],
+legalities: [
+  { format: 'Commander', legality: 'Legal' },
+  { format: 'Duel', legality: 'Legal' },
+  { format: 'Explorer', legality: 'Legal' },
+  { format: 'Gladiator', legality: 'Legal' },
+  { format: 'Historic', legality: 'Legal' },
+  { format: 'Historicbrawl', legality: 'Legal' },
+  { format: 'Legacy', legality: 'Legal' },
+  { format: 'Modern', legality: 'Legal' },
+  { format: 'Oathbreaker', legality: 'Legal' },
+  { format: 'Penny', legality: 'Legal' },
+  { format: 'Pioneer', legality: 'Legal' },
+  { format: 'Vintage', legality: 'Legal' }
+],
+id: '917bde65-3303-5522-b494-ae9d82f95073'
+}
+{
+name: 'Squee, the Immortal',
+manaCost: '{1}{R}{R}',
+cmc: 3,
+colors: [ 'R' ],
+colorIdentity: [ 'R' ],
+type: 'Legendary Creature — Goblin',
+supertypes: [ 'Legendary' ],
+types: [ 'Creature' ],
+subtypes: [ 'Goblin' ],
+rarity: 'Rare',
+set: 'MUL',
+setName: 'Multiverse Legends',
+text: 'You may cast Squee, the Immortal from your graveyard or from exile.',
+flavor: 'Squee had never wanted to be a king or a symbol of defiance against Phyrexians. Naturally, he found himself as both.\n' +
+  '—*Heroes of the Second Invasion*',
+artist: 'Eshpur',
+number: '152',
+power: '2',
+toughness: '1',
+layout: 'normal',
+variations: [
+  '1b3bb193-43ab-5307-8c87-2c35b90d6423',
+  '917bde65-3303-5522-b494-ae9d82f95073',
+  'c7aa3eff-be48-5fd3-99e5-6128b73e82ca'
+],
+rulings: [
+  {
+    date: '2018-04-27',
+    text: "Squee's ability doesn't prevent you from casting Squee from any other zone."
+  },
+  {
+    date: '2018-04-27',
+    text: 'You must follow the normal timing permissions and restrictions and pay its cost to cast Squee from your graveyard or from exile.'
+  }
+],
+printings: [ 'DOM', 'MUL', 'NCC', 'PDOM' ],
+legalities: [
+  { format: 'Commander', legality: 'Legal' },
+  { format: 'Duel', legality: 'Legal' },
+  { format: 'Explorer', legality: 'Legal' },
+  { format: 'Gladiator', legality: 'Legal' },
+  { format: 'Historic', legality: 'Legal' },
+  { format: 'Historicbrawl', legality: 'Legal' },
+  { format: 'Legacy', legality: 'Legal' },
+  { format: 'Modern', legality: 'Legal' },
+  { format: 'Oathbreaker', legality: 'Legal' },
+  { format: 'Penny', legality: 'Legal' },
+  { format: 'Pioneer', legality: 'Legal' },
+  { format: 'Vintage', legality: 'Legal' }
+],
+id: '0c26ea7d-8014-5197-acbb-9bef7fe85fe1'
+}
+{
+name: 'Squee, the Immortal',
+manaCost: '{1}{R}{R}',
+cmc: 3,
+colors: [ 'R' ],
+colorIdentity: [ 'R' ],
+type: 'Legendary Creature — Goblin',
+supertypes: [ 'Legendary' ],
+types: [ 'Creature' ],
+subtypes: [ 'Goblin' ],
+rarity: 'Rare',
+set: 'MUL',
+setName: 'Multiverse Legends',
+text: 'You may cast Squee, the Immortal from your graveyard or from exile.',
+flavor: 'Squee had never wanted to be a king or a symbol of defiance against Phyrexians. Naturally, he found himself as both.\n' +
+  '—*Heroes of the Second Invasion*',
+artist: 'Eshpur',
+number: '152z',
+power: '2',
+toughness: '1',
+layout: 'normal',
+variations: [
+  '1b3bb193-43ab-5307-8c87-2c35b90d6423',
+  '917bde65-3303-5522-b494-ae9d82f95073',
+  '0c26ea7d-8014-5197-acbb-9bef7fe85fe1'
+],
+rulings: [
+  {
+    date: '2018-04-27',
+    text: "Squee's ability doesn't prevent you from casting Squee from any other zone."
+  },
+  {
+    date: '2018-04-27',
+    text: 'You must follow the normal timing permissions and restrictions and pay its cost to cast Squee from your graveyard or from exile.'
+  }
+],
+printings: [ 'DOM', 'MUL', 'NCC', 'PDOM' ],
+legalities: [
+  { format: 'Commander', legality: 'Legal' },
+  { format: 'Duel', legality: 'Legal' },
+  { format: 'Explorer', legality: 'Legal' },
+  { format: 'Gladiator', legality: 'Legal' },
+  { format: 'Historic', legality: 'Legal' },
+  { format: 'Historicbrawl', legality: 'Legal' },
+  { format: 'Legacy', legality: 'Legal' },
+  { format: 'Modern', legality: 'Legal' },
+  { format: 'Oathbreaker', legality: 'Legal' },
+  { format: 'Penny', legality: 'Legal' },
+  { format: 'Pioneer', legality: 'Legal' },
+  { format: 'Vintage', legality: 'Legal' }
+],
+id: 'c7aa3eff-be48-5fd3-99e5-6128b73e82ca'
+}
+{
+name: 'Squee, the Immortal',
+manaCost: '{1}{R}{R}',
+cmc: 3,
+colors: [ 'R' ],
+colorIdentity: [ 'R' ],
+type: 'Legendary Creature — Goblin',
+supertypes: [ 'Legendary' ],
+types: [ 'Creature' ],
+subtypes: [ 'Goblin' ],
+rarity: 'Rare',
+set: 'NCC',
+setName: 'New Capenna Commander',
+text: 'You may cast Squee, the Immortal from your graveyard or from exile.',
+flavor: '"You gotta be pretty smart to live long as me, but not being able to die helps."',
+artist: 'Svetlin Velinov',
+number: '275',
+power: '2',
+toughness: '1',
+layout: 'normal',
+multiverseid: '559847',
+imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=559847&type=card',
+rulings: [
+  {
+    date: '2018-04-27',
+    text: "Squee's ability doesn't prevent you from casting Squee from any other zone."
+  },
+  {
+    date: '2018-04-27',
+    text: 'You must follow the normal timing permissions and restrictions and pay its cost to cast Squee from your graveyard or from exile.'
+  }
+],
+foreignNames: [
+  {
+    name: 'Squee der Unsterbliche',
+    text: 'Du kannst Squee den Unsterblichen aus deinem Friedhof oder dem Exil wirken.',
+    type: 'Legendäre Kreatur — Goblin',
+    flavor: '„Andere werden erst nach ihrem Tod unsterblich. Ich war da etwas schlauer."',
+    imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=560104&type=card',
+    language: 'German',
+    multiverseid: 560104
+  },
+  {
+    name: 'Squee, el Inmortal',
+    text: 'Puedes lanzar a Squee, el Inmortal desde tu cementerio o desde el exilio.',
+    type: 'Criatura legendaria — Trasgo',
+    flavor: '"Tienes que ser muy listo para vivir tanto como yo. Ahora bien, lo de no poder morirse también ayuda".',
+    imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=560361&type=card',
+    language: 'Spanish',
+    multiverseid: 560361
+  },
+  {
+    name: "Skwi, l'immortel",
+    text: "Vous pouvez lancer Skwi, l'immortel depuis votre cimetière ou depuis l'exil.",
+    type: 'Créature légendaire : gobelin',
+    flavor: '« Il faut être malin pour vivre aussi longtemps que moi, mais être immortel ça aide. »',
+    imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=560618&type=card',
+    language: 'French',
+    multiverseid: 560618
+  },
+  {
+    name: "Squee, l'Immortale",
+    text: "Puoi lanciare Squee, l'Immortale dal tuo cimitero o dall'esilio.",
+    type: 'Creatura Leggendaria — Goblin',
+    flavor: '"Bisogna essere piuttosto furbi per vivere tanto quanto me, ma non poter morire aiuta."',
+    imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=560875&type=card',
+    language: 'Italian',
+    multiverseid: 560875
+  },
+  {
+    name: '不死身、スクイー',
+    text: 'あなたはあなたの墓地や追放領域にある不死身、スクイーを唱えてもよい。',
+    type: '伝説のクリーチャー — ゴブリン',
+    flavor: '「あんた頭が良くないと、おいらみたく長生きできないよ。死なない体は便利だよ。」',
+    imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=561132&type=card',
+    language: 'Japanese',
+    multiverseid: 561132
+  },
+  {
+    name: 'Squee, o Imortal',
+    text: 'Você pode conjurar Squee, o Imortal, do seu cemitério ou do exílio.',
+    type: 'Criatura Lendária — Goblin',
+    flavor: '"Tem que ser muito esperto pra viver tanto quanto eu, mas não poder morrer também ajuda."',
+    imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=561389&type=card',
+    language: 'Portuguese (Brazil)',
+    multiverseid: 561389
+  },
+  {
+    name: 'Скви, Бессмертный',
+    text: 'Вы можете разыграть Скви, Бессмертного из вашего кладбища или из изгнания.',
+    type: 'Легендарное Существо — Гоблин',
+    flavor: '«Чтобы прожить столько, сколько прожил я, нужно быть очень умным, но, конечно, неспособность умереть здорово помогает».',
+    imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=561646&type=card',
+    language: 'Russian',
+    multiverseid: 561646
+  },
+  {
+    name: '不死斯奎',
+    text: '你可以从你的坟墓场或放逐区中施放不死斯奎。',
+    type: '传奇生物 ～鬼怪',
+    flavor: '「想要活得跟我一样久，你得要聪明过人，或者就是死不了。」',
+    imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=561903&type=card',
+    language: 'Chinese Simplified',
+    multiverseid: 561903
+  },
+  {
+    name: '不死斯奎',
+    text: '你可以從你的墳墓場或放逐區中施放不死斯奎。',
+    type: '傳奇生物 ～鬼怪',
+    flavor: '「想要活得跟我一樣久，你得要聰明過人，或者就是死不了。」',
+    imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=562160&type=card',
+    language: 'Chinese Traditional',
+    multiverseid: 562160
+  }
+],
+printings: [ 'DOM', 'MUL', 'NCC', 'PDOM' ],
+originalText: 'You may cast Squee, the Immortal from your graveyard or from exile.',
+originalType: 'Legendary Creature — Goblin',
+legalities: [
+  { format: 'Commander', legality: 'Legal' },
+  { format: 'Duel', legality: 'Legal' },
+  { format: 'Explorer', legality: 'Legal' },
+  { format: 'Gladiator', legality: 'Legal' },
+  { format: 'Historic', legality: 'Legal' },
+  { format: 'Historicbrawl', legality: 'Legal' },
+  { format: 'Legacy', legality: 'Legal' },
+  { format: 'Modern', legality: 'Legal' },
+  { format: 'Oathbreaker', legality: 'Legal' },
+  { format: 'Penny', legality: 'Legal' },
+  { format: 'Pioneer', legality: 'Legal' },
+  { format: 'Vintage', legality: 'Legal' }
+],
+id: 'c42cf92b-6080-5bde-ad83-9bf9c256b5b8'
+}
+{
+name: 'Squee, Dubious Monarch',
+manaCost: '{2}{R}',
+cmc: 3,
+colors: [ 'R' ],
+colorIdentity: [ 'R' ],
+type: 'Legendary Creature — Goblin Noble',
+supertypes: [ 'Legendary' ],
+types: [ 'Creature' ],
+subtypes: [ 'Goblin', 'Noble' ],
+rarity: 'Rare',
+set: 'PDMU',
+setName: 'Dominaria United Promos',
+text: 'Haste\n' +
+  "Whenever Squee, Dubious Monarch attacks, create a 1/1 red Goblin creature token that's tapped and attacking.\n" +
+  'You may cast Squee, Dubious Monarch from your graveyard by paying {3}{R} and exiling four other cards from your graveyard rather than paying its mana cost.',
+artist: 'Zoltan Boros',
+number: '146p',
+power: '2',
+toughness: '2',
+layout: 'normal',
+variations: [ '399f2226-9d6f-5af2-add0-60d6f2d7dad6' ],
+rulings: [
+  {
+    date: '2022-09-09',
+    text: 'Squee’s controller chooses which player or planeswalker the Goblin token is attacking. It doesn’t need to be the same player or planeswalker that Squee is attacking.'
+  },
+  {
+    date: '2022-09-09',
+    text: 'The casting permission granted by Squee’s last ability doesn’t change when you may cast it from your graveyard.'
+  },
+  {
+    date: '2022-09-09',
+    text: 'If Squee is countered or dies after being cast from your graveyard, it returns to the graveyard. It may be cast this way again later.'
+  },
+  {
+    date: '2022-09-09',
+    text: 'Once you begin casting a spell from your graveyard, it immediately moves to the stack. Players can’t take any other actions until you’ve finished casting the spell.'
+  }
+],
+printings: [ 'DMU', 'PDMU' ],
+legalities: [
+  { format: 'Alchemy', legality: 'Legal' },
+  { format: 'Brawl', legality: 'Legal' },
+  { format: 'Commander', legality: 'Legal' },
+  { format: 'Duel', legality: 'Legal' },
+  { format: 'Explorer', legality: 'Legal' },
+  { format: 'Future', legality: 'Legal' },
+  { format: 'Gladiator', legality: 'Legal' },
+  { format: 'Historic', legality: 'Legal' },
+  { format: 'Historicbrawl', legality: 'Legal' },
+  { format: 'Legacy', legality: 'Legal' },
+  { format: 'Modern', legality: 'Legal' },
+  { format: 'Oathbreaker', legality: 'Legal' },
+  { format: 'Pioneer', legality: 'Legal' },
+  { format: 'Standard', legality: 'Legal' },
+  { format: 'Vintage', legality: 'Legal' }
+],
+id: 'c5232e4e-99b8-54ea-bb20-bec1d195d62b'
+}
+{
+name: 'Squee, Dubious Monarch',
+manaCost: '{2}{R}',
+cmc: 3,
+colors: [ 'R' ],
+colorIdentity: [ 'R' ],
+type: 'Legendary Creature — Goblin Noble',
+supertypes: [ 'Legendary' ],
+types: [ 'Creature' ],
+subtypes: [ 'Goblin', 'Noble' ],
+rarity: 'Rare',
+set: 'PDMU',
+setName: 'Dominaria United Promos',
+text: 'Haste\n' +
+  "Whenever Squee, Dubious Monarch attacks, create a 1/1 red Goblin creature token that's tapped and attacking.\n" +
+  'You may cast Squee, Dubious Monarch from your graveyard by paying {3}{R} and exiling four other cards from your graveyard rather than paying its mana cost.',
+artist: 'Zoltan Boros',
+number: '146s',
+power: '2',
+toughness: '2',
+layout: 'normal',
+variations: [ 'c5232e4e-99b8-54ea-bb20-bec1d195d62b' ],
+rulings: [
+  {
+    date: '2022-09-09',
+    text: 'Squee’s controller chooses which player or planeswalker the Goblin token is attacking. It doesn’t need to be the same player or planeswalker that Squee is attacking.'
+  },
+  {
+    date: '2022-09-09',
+    text: 'The casting permission granted by Squee’s last ability doesn’t change when you may cast it from your graveyard.'
+  },
+  {
+    date: '2022-09-09',
+    text: 'If Squee is countered or dies after being cast from your graveyard, it returns to the graveyard. It may be cast this way again later.'
+  },
+  {
+    date: '2022-09-09',
+    text: 'Once you begin casting a spell from your graveyard, it immediately moves to the stack. Players can’t take any other actions until you’ve finished casting the spell.'
+  }
+],
+printings: [ 'DMU', 'PDMU' ],
+legalities: [
+  { format: 'Alchemy', legality: 'Legal' },
+  { format: 'Brawl', legality: 'Legal' },
+  { format: 'Commander', legality: 'Legal' },
+  { format: 'Duel', legality: 'Legal' },
+  { format: 'Explorer', legality: 'Legal' },
+  { format: 'Future', legality: 'Legal' },
+  { format: 'Gladiator', legality: 'Legal' },
+  { format: 'Historic', legality: 'Legal' },
+  { format: 'Historicbrawl', legality: 'Legal' },
+  { format: 'Legacy', legality: 'Legal' },
+  { format: 'Modern', legality: 'Legal' },
+  { format: 'Oathbreaker', legality: 'Legal' },
+  { format: 'Pioneer', legality: 'Legal' },
+  { format: 'Standard', legality: 'Legal' },
+  { format: 'Vintage', legality: 'Legal' }
+],
+id: '399f2226-9d6f-5af2-add0-60d6f2d7dad6'
+}
+{
+name: 'Squee, the Immortal',
+manaCost: '{1}{R}{R}',
+cmc: 3,
+colors: [ 'R' ],
+colorIdentity: [ 'R' ],
+type: 'Legendary Creature — Goblin',
+supertypes: [ 'Legendary' ],
+types: [ 'Creature' ],
+subtypes: [ 'Goblin' ],
+rarity: 'Rare',
+set: 'PDOM',
+setName: 'Dominaria Promos',
+text: 'You may cast Squee, the Immortal from your graveyard or from exile.',
+flavor: '"You gotta be pretty smart to live long as me, but not being able to die helps."',
+artist: 'Svetlin Velinov',
+number: '146p',
+power: '2',
+toughness: '1',
+layout: 'normal',
+variations: [ 'e7b577f1-bbd7-5662-87f3-47d6de82edc5' ],
+rulings: [
+  {
+    date: '2018-04-27',
+    text: "Squee's ability doesn't prevent you from casting Squee from any other zone."
+  },
+  {
+    date: '2018-04-27',
+    text: 'You must follow the normal timing permissions and restrictions and pay its cost to cast Squee from your graveyard or from exile.'
+  }
+],
+printings: [ 'DOM', 'MUL', 'NCC', 'PDOM' ],
+legalities: [
+  { format: 'Commander', legality: 'Legal' },
+  { format: 'Duel', legality: 'Legal' },
+  { format: 'Explorer', legality: 'Legal' },
+  { format: 'Gladiator', legality: 'Legal' },
+  { format: 'Historic', legality: 'Legal' },
+  { format: 'Historicbrawl', legality: 'Legal' },
+  { format: 'Legacy', legality: 'Legal' },
+  { format: 'Modern', legality: 'Legal' },
+  { format: 'Oathbreaker', legality: 'Legal' },
+  { format: 'Penny', legality: 'Legal' },
+  { format: 'Pioneer', legality: 'Legal' },
+  { format: 'Vintage', legality: 'Legal' }
+],
+id: 'fde97bb4-cf18-572d-ae97-0558bdc2dce4'
+}
+{
+name: 'Squee, the Immortal',
+manaCost: '{1}{R}{R}',
+cmc: 3,
+colors: [ 'R' ],
+colorIdentity: [ 'R' ],
+type: 'Legendary Creature — Goblin',
+supertypes: [ 'Legendary' ],
+types: [ 'Creature' ],
+subtypes: [ 'Goblin' ],
+rarity: 'Rare',
+set: 'PDOM',
+setName: 'Dominaria Promos',
+text: 'You may cast Squee, the Immortal from your graveyard or from exile.',
+flavor: '"You gotta be pretty smart to live long as me, but not being able to die helps."',
+artist: 'Svetlin Velinov',
+number: '146s',
+power: '2',
+toughness: '1',
+layout: 'normal',
+variations: [ 'fde97bb4-cf18-572d-ae97-0558bdc2dce4' ],
+rulings: [
+  {
+    date: '2018-04-27',
+    text: "Squee's ability doesn't prevent you from casting Squee from any other zone."
+  },
+  {
+    date: '2018-04-27',
+    text: 'You must follow the normal timing permissions and restrictions and pay its cost to cast Squee from your graveyard or from exile.'
+  }
+],
+printings: [ 'DOM', 'MUL', 'NCC', 'PDOM' ],
+legalities: [
+  { format: 'Commander', legality: 'Legal' },
+  { format: 'Duel', legality: 'Legal' },
+  { format: 'Explorer', legality: 'Legal' },
+  { format: 'Gladiator', legality: 'Legal' },
+  { format: 'Historic', legality: 'Legal' },
+  { format: 'Historicbrawl', legality: 'Legal' },
+  { format: 'Legacy', legality: 'Legal' },
+  { format: 'Modern', legality: 'Legal' },
+  { format: 'Oathbreaker', legality: 'Legal' },
+  { format: 'Penny', legality: 'Legal' },
+  { format: 'Pioneer', legality: 'Legal' },
+  { format: 'Vintage', legality: 'Legal' }
+],
+id: 'e7b577f1-bbd7-5662-87f3-47d6de82edc5'
+}
+{
+name: "Squee's Revenge",
+manaCost: '{1}{U}{R}',
+cmc: 3,
+colors: [ 'R', 'U' ],
+colorIdentity: [ 'R', 'U' ],
+type: 'Sorcery',
+types: [ 'Sorcery' ],
+rarity: 'Uncommon',
+set: 'PHED',
+setName: 'Heads I Win, Tails You Lose',
+text: 'Choose a number. Flip a coin that many times or until you lose a flip, whichever comes first. If you win all the flips, draw two cards for each flip.',
+artist: 'Kev Walker',
+number: '43',
+layout: 'normal',
+printings: [ 'APC', 'PHED' ],
+legalities: [
+  { format: 'Commander', legality: 'Legal' },
+  { format: 'Duel', legality: 'Legal' },
+  { format: 'Legacy', legality: 'Legal' },
+  { format: 'Oathbreaker', legality: 'Legal' },
+  { format: 'Predh', legality: 'Legal' },
+  { format: 'Premodern', legality: 'Legal' },
+  { format: 'Vintage', legality: 'Legal' }
+],
+id: '3167c02b-06b6-542b-9525-b969f014e01b'
+}
+{
+name: 'Squee, Goblin Nabob Avatar',
+cmc: 0,
+type: 'Vanguard',
+types: [ 'Vanguard' ],
+rarity: 'Rare',
+set: 'PMOA',
+setName: 'Magic Online Avatars',
+text: '{1}: Prevent the next 1 damage that would be dealt to target creature you control this turn.',
+artist: 'UDON',
+number: '71',
+layout: 'vanguard',
+multiverseid: '182293',
+imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=182293&type=card',
+hand: '+3',
+life: '-4',
+printings: [ 'PMOA' ],
+originalText: '{1}: Prevent the next 1 damage that would be dealt to target creature you control this turn.',
+originalType: 'Vanguard',
+id: '2cb56748-4dba-5276-be3e-03a5eec324a4'
+}
+{
+name: 'Squee',
+cmc: 0,
+type: 'Vanguard',
+types: [ 'Vanguard' ],
+rarity: 'Rare',
+set: 'PVAN',
+setName: 'Vanguard Series',
+text: 'Your opponents play with their hands revealed.',
+flavor: "The smartest—and only—goblin cabin boy aboard the *Weatherlight*, Squee has learned that intelligence and common sense are very different things. This matters little, however, since he has neither. Fortunately, he doesn't know what he's missing.",
+artist: 'Daniel Gelon',
+number: '107',
+layout: 'vanguard',
+multiverseid: '4969',
+imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=4969&type=card',
+hand: '+3',
+life: '-4',
+printings: [ 'PVAN' ],
+originalText: 'Your opponents play with their hands face up.',
+originalType: 'Vanguard - Character',
+id: 'd7ee18e1-525b-56d6-ba45-a318ad7a0f92'
+}
+{
+name: 'Squee, Goblin Nabob',
+manaCost: '{2}{R}',
+cmc: 3,
+colors: [ 'R' ],
+colorIdentity: [ 'R' ],
+type: 'Legendary Creature — Goblin',
+supertypes: [ 'Legendary' ],
+types: [ 'Creature' ],
+subtypes: [ 'Goblin' ],
+rarity: 'Rare',
+set: 'SLC',
+setName: 'Secret Lair 30th Anniversary Countdown Kit',
+text: 'At the beginning of your upkeep, you may return Squee, Goblin Nabob from your graveyard to your hand.',
+flavor: '"General?!" Tahngarth roared. "General *nuisance*, maybe."',
+artist: 'Nana Qi',
+number: '1999',
+power: '1',
+toughness: '1',
+layout: 'normal',
+rulings: [
+  {
+    date: '2018-12-07',
+    text: 'If Squee isn’t in your graveyard as your upkeep begins, its ability won’t trigger. You can’t take any actions during your turn before your upkeep begins.'
+  }
+],
+printings: [ '10E', 'C19', 'MMA', 'MMQ', 'SLC', 'UMA' ],
+legalities: [
+  { format: 'Commander', legality: 'Legal' },
+  { format: 'Duel', legality: 'Legal' },
+  { format: 'Legacy', legality: 'Legal' },
+  { format: 'Modern', legality: 'Legal' },
+  { format: 'Oathbreaker', legality: 'Legal' },
+  { format: 'Penny', legality: 'Legal' },
+  { format: 'Predh', legality: 'Legal' },
+  { format: 'Premodern', legality: 'Legal' },
+  { format: 'Vintage', legality: 'Legal' }
+],
+id: '0d4e054c-5df4-56c8-9703-a69cd67cf213'
+}
+{
+name: "Squee's Toy",
+manaCost: '{1}',
+cmc: 1,
+type: 'Artifact',
+types: [ 'Artifact' ],
+rarity: 'Common',
+set: 'TMP',
+setName: 'Tempest',
+text: '{T}: Prevent the next 1 damage that would be dealt to target creature this turn.',
+flavor: "As the horrors closed in on Gerrard, Squee trembled and clutched his toy for comfort. He didn't know where it came from or why it was so warm, but 
+he was glad he'd kept it near.",
+artist: 'Heather Hudson',
+number: '309',
+layout: 'normal',
+multiverseid: '4629',
+imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=4629&type=card',
+foreignNames: [
+  {
+    name: 'Squees Spielzeug',
+    text: '{T}: Verhindere 1 Schadenspunkt bei einer Kreatur.',
+    type: 'Artefakt',
+    flavor: null,
+    language: 'German',
+    multiverseid: null
+  },
+  {
+    name: 'El juguete de Squee',
+    flavor: null,
+    language: 'Spanish',
+    multiverseid: null
+  },
+  {
+    name: 'Jouet de Skwi',
+    flavor: null,
+    language: 'French',
+    multiverseid: null
+  },
+  {
+    name: 'Giocattolo di Squee',
+    flavor: null,
+    language: 'Italian',
+    multiverseid: null
+  },
+  {
+    name: 'スクイーのオモチャ',
+    flavor: null,
+    language: 'Japanese',
+    multiverseid: null
+  },
+  {
+    name: 'Brinquedo de Squee',
+    flavor: null,
+    language: 'Portuguese (Brazil)',
+    multiverseid: null
+  }
+],
+printings: [ 'TMP' ],
+originalText: 'oc\nT: Prevent 1 damage to any creature.',
+originalType: 'Artifact',
+legalities: [
+  { format: 'Commander', legality: 'Legal' },
+  { format: 'Duel', legality: 'Legal' },
+  { format: 'Legacy', legality: 'Legal' },
+  { format: 'Oathbreaker', legality: 'Legal' },
+  { format: 'Pauper', legality: 'Legal' },
+  { format: 'Paupercommander', legality: 'Legal' },
+  { format: 'Penny', legality: 'Legal' },
+  { format: 'Predh', legality: 'Legal' },
+  { format: 'Premodern', legality: 'Legal' },
+  { format: 'Vintage', legality: 'Legal' }
+],
+id: 'd38e5290-d399-56a6-8209-161cdcc0f8de'
+}
+{
+name: 'Squee, Goblin Nabob',
+manaCost: '{2}{R}',
+cmc: 3,
+colors: [ 'R' ],
+colorIdentity: [ 'R' ],
+type: 'Legendary Creature — Goblin',
+supertypes: [ 'Legendary' ],
+types: [ 'Creature' ],
+subtypes: [ 'Goblin' ],
+rarity: 'Rare',
+set: 'UMA',
+setName: 'Ultimate Masters',
+text: 'At the beginning of your upkeep, you may return Squee, Goblin Nabob from your graveyard to your hand.',
+flavor: `"If Yawgmoth meant Squee's immortality as a curse, no one ever told Squee."\n` +
+  '—Karn',
+artist: 'Greg Staples',
+number: '150',
+power: '1',
+toughness: '1',
+layout: 'normal',
+multiverseid: '456746',
+imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=456746&type=card',
+rulings: [
+  {
+    date: '2018-12-07',
+    text: 'If Squee isn’t in your graveyard as your upkeep begins, its ability won’t trigger. You can’t take any actions during your turn before your upkeep begins.'
+  }
+],
+foreignNames: [
+  {
+    name: 'ゴブリンの太守スクイー',
+    text: 'あなたのアップキープの開始時に、あなたはあなたの墓地からゴブリンの太守スクイーをあなたの手札に戻してもよい。',
+    type: '伝説のクリーチャー — ゴブリン',
+    flavor: '「ヨーグモスにとってスクイーの不死身は呪いのつもりだったとしても、スクイーにそう告げる者はいなかった。」\n――カーン',
+    imageUrl: 'http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=457000&type=card',
+    language: 'Japanese',
+    multiverseid: 457000
+  }
+],
+printings: [ '10E', 'C19', 'MMA', 'MMQ', 'SLC', 'UMA' ],
+originalText: 'At the beginning of your upkeep, you may return Squee, Goblin Nabob from your graveyard to your hand.',
+originalType: 'Legendary Creature — Goblin',
+legalities: [
+  { format: 'Commander', legality: 'Legal' },
+  { format: 'Duel', legality: 'Legal' },
+  { format: 'Legacy', legality: 'Legal' },
+  { format: 'Modern', legality: 'Legal' },
+  { format: 'Oathbreaker', legality: 'Legal' },
+  { format: 'Penny', legality: 'Legal' },
+  { format: 'Predh', legality: 'Legal' },
+  { format: 'Premodern', legality: 'Legal' },
+  { format: 'Vintage', legality: 'Legal' }
+],
+id: 'aee03847-c6ae-50cc-84dc-de8a6c8647c1'
+}
