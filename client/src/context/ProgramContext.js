@@ -7,7 +7,7 @@ function ProgramContextProvider(props) {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('/set2?setName=ravnica&page=1');
+            const response = await fetch('api/mtg/set2?setName=ravnica&page=1');
             const data = await response.json();
             console.log('data shoul be coming?');
             console.log(data);
