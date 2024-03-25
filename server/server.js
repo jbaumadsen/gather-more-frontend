@@ -2,6 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const mtgRoutes = require('./routes/mtgRoutes');
+const { connectToMongo } = require('./db/mongoClient');
+
 const app = express();
 
 app.use('/api/mtg', mtgRoutes);

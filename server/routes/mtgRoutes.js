@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const mtg = require('mtgsdk');
+const { getSetByName } = require('../controllers/getSetsByName');
+
+router.get('/sets', getSetByName);
 
 router.get('/set', (req, res) => {
     const { setName } = req.query;
