@@ -1,0 +1,4 @@
+{
+  "watch": ["./client/build", "server"],
+  "ext": "js,json,html"
+}

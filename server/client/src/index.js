@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
 import { ProgramContextProvider } from './context/ProgramContext';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+console.log('index loaded');
 root.render(
   <React.StrictMode>
     <ProgramContextProvider>
