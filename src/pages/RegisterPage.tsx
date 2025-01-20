@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axios from 'axios';  
+import LoginPage from './LoginPage';
+
 
 const RegisterPage: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -23,7 +25,9 @@ const RegisterPage: React.FC = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white shadow-lg rounded-lg">
+    <>
+      <LoginPage />
+    <div className="max-w-md mt-4 mx-auto p-6 bg-gray-200 shadow-lg rounded-lg">
       <h2 className="text-2xl font-bold mb-4">Register</h2>
       <form onSubmit={handleRegister}>
         <input
@@ -53,6 +57,7 @@ const RegisterPage: React.FC = () => {
       </form>
       {error && <p className="mt-2 text-red-500">{error}</p>}
     </div>
+    </>
   );
 };
 

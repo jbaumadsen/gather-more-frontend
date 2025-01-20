@@ -3,6 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import useUserContext from '../../hooks/useUserContext'; // Assuming you're using user context
 import axios from 'axios';
 
+const envoronmentType = import.meta.env.VITE_ENVIRONMENT_TYPE;
+console.log("envoronmentType", envoronmentType);
+
 const Navbar: React.FC = () => {
   const { setUser, setToken, token, user } = useUserContext();  // Access the user context to clear user data
   const navigate = useNavigate();  // React Router's useNavigate to redirect to other pages
@@ -65,6 +68,7 @@ const Navbar: React.FC = () => {
   };
 
   const handleSecret9Login = async (e: React.FormEvent) => {
+    console.log("envoronmentType", envoronmentType);
     // Redirect to the secret9 login page
     e.preventDefault();
     try {
@@ -101,42 +105,47 @@ const Navbar: React.FC = () => {
           <Link to="/league-manager" className="hover:text-gray-300 flex items-center">
             League Manager
           </Link>
-          <Link to="/display-all-context" className="hover:text-gray-300 flex items-center">
+          {/* <Link to="/display-all-context" className="hover:text-gray-300 flex items-center">
             Display All Context
-          </Link>
+          </Link> */}
+          <Link to="/card-pool-manager" className="hover:text-gray-300 flex items-center">Card Pool Manager</Link>
           
-          <button
-            onClick={handleSecret6Login}
-            className="bg-gray-500 text-white p-2 rounded hover:bg-green-700 transition duration-300"
-          >
-            Log Secret6 in
-          </button>
-          <button
-            onClick={handleSecret7Login}
-            className="bg-gray-500 text-white p-2 rounded hover:bg-green-700 transition duration-300"
-          >
-            Log Secret7 in
-          </button>
-          {/* secret 8 */}
-          <button
-            onClick={handleSecret8Login}
-            className="bg-gray-500 text-white p-2 rounded hover:bg-green-700 transition duration-300"
-          >
-            Log Secret8 in
-          </button>
-          {/* secret 9 */}
-          <button
-            onClick={handleSecret9Login}
-            className="bg-gray-500 text-white p-2 rounded hover:bg-green-700 transition duration-300"
-          >
-            Log Secret9 in
-          </button>
-          <button
-            onClick={handleDeleteInfo}
-            className="bg-gray-500 text-white p-2 rounded hover:bg-green-700 transition duration-300"
-          >
-            Delete Info
-          </button>
+          {envoronmentType === 'development' && (
+            <>
+              <button
+                onClick={handleSecret6Login}
+                className="bg-gray-500 text-white p-2 rounded hover:bg-green-700 transition duration-300"
+              >
+                Log Secret6 in
+              </button>
+              <button
+                onClick={handleSecret7Login}
+                className="bg-gray-500 text-white p-2 rounded hover:bg-green-700 transition duration-300"
+              >
+                Log Secret7 in
+              </button>
+              {/* secret 8 */}
+              <button
+                onClick={handleSecret8Login}
+                className="bg-gray-500 text-white p-2 rounded hover:bg-green-700 transition duration-300"
+              >
+                Log Secret8 in
+              </button>
+              {/* secret 9 */}
+              <button
+                onClick={handleSecret9Login}
+                className="bg-gray-500 text-white p-2 rounded hover:bg-green-700 transition duration-300"
+              >
+                Log Secret9 in
+              </button>
+              <button
+                onClick={handleDeleteInfo}
+                className="bg-gray-500 text-white p-2 rounded hover:bg-green-700 transition duration-300"
+              >
+                Delete Info
+              </button>
+            </>
+          )}
           {user &&user?.username && <span className="text-lg text-gray-300 flex items-center">
             Welcome, {user?.username}!
           </span>}

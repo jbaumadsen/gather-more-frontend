@@ -8,7 +8,7 @@ import ProfilePage from './pages/ProfilePage';
 import LeagueManagerPage from './pages/LeagueManagerPage';
 import CardPoolManager from './pages/CardPoolManager';
 import Navbar from './components/navbar/Navbar';
-import DisplayAllContextInfoPage from './pages/DisplayAllContextInfoPage';
+// import DisplayAllContextInfoPage from './pages/DisplayAllContextInfoPage';
 
 const App: React.FC = () => {
   return (
@@ -23,7 +23,7 @@ const App: React.FC = () => {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/league-manager" element={<LeagueManagerPage />} />
-            <Route path="/display-all-context" element={<DisplayAllContextInfoPage />} />
+            {/* <Route path="/display-all-context" element={<DisplayAllContextInfoPage />} /> */}
           </Routes>
         </div>
       </Router>
