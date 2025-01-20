@@ -14,8 +14,9 @@ const RegisterPage: React.FC = () => {
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
       // Send the registration request to the backend
-      await axios.post('http://localhost:5000/api/user/register', { username, email, password });
+      await axios.post(`${apiBaseUrl}/api/user/register`, { username, email, password });
 
       // Redirect to login page after successful registration
         navigate('/login');
