@@ -4,7 +4,7 @@ import useUserContext from "../../hooks/useUserContext";
 
 const DraftCardComponent = ({ card }: { card: Card }) => {
 
-  const { currentUserTeam, currentDraft, getDraftData, currentBoosterPackCards } = useUserContext();
+  const { currentUserTeam, currentDraft, getDraftData } = useUserContext();
 
   const handlePickCard = async () => {
     if(!currentUserTeam || !currentDraft || !currentUserTeam.packQueue[0] || !currentUserTeam._id || !currentDraft._id) {
