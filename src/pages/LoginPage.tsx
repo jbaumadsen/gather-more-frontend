@@ -14,8 +14,9 @@ const LoginPage: React.FC = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
       // Make the login request
-      const response = await axios.post('http://localhost:5000/api/user/login', { email, password });
+      const response = await axios.post(`${apiBaseUrl}/user/login`, { email, password });
       const { token } = response.data;
       setToken(token);
 
