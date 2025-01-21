@@ -19,19 +19,9 @@ const LoginPage: React.FC = () => {
       const response = await axios.post(`${apiBaseUrl}/user/login`, { email, password });
       const { token } = response.data;
       setToken(token);
+      // save token to local storage
+      localStorage.setItem('token', token);
 
-      // console.log(response.data);
-
-      // // Fetch user data after successful login and update context
-      // const userResponse = await axios.get('http://localhost:5000/api/user/profile', {
-      //   headers: {
-      //     Authorization: `Bearer ${token}`,
-      //   },
-      // });
-      // console.log("userResponse", userResponse.data);
-      // setUser(userResponse.data);  // Update user context with the fetched data
-
-      // // Redirect to the profile page
       navigate('/profile');
     } catch (err) {
       setError('Invalid email or password: ' + err);
