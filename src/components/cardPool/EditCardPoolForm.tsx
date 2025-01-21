@@ -17,9 +17,9 @@ import { updateCardPool } from '../../utils/cardPool.utils';
 const EditCardPoolForm: React.FC = () => {
   const { currentCardPool } = useUserContext();
 
-  useEffect(() => {
-    console.log(currentCardPool);
-  }, [currentCardPool]);
+  // useEffect(() => {
+  //   console.log(currentCardPool);
+  // }, [currentCardPool]);
 
   const handleSave = async () => {
     if (currentCardPool) {
