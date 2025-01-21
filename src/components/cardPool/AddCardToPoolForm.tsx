@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import useUserContext from '../../hooks/useUserContext';
 import { Card } from '../../types/card.types';
-import { CardPool } from '../../types/cardPool.types';
+import { addCardToCardPool } from '../../utils/cardPool.utils';
 
 const AddCardToPoolForm: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -13,24 +13,22 @@ const AddCardToPoolForm: React.FC = () => {
     if (searchTerm.length > 0) {
       const filteredCards = cards.filter((card: Card) => card.name.toLowerCase().includes(searchTerm.toLowerCase()));
       setSuggestedCards(filteredCards.slice(0, 10));
-      console.log(filteredCards);
+      // console.log(filteredCards);
     } else {
       setSuggestedCards([]);
     }
   }, [searchTerm, cards]);
 
-  const handleAddCard = (card: Card) => {
-    if (!currentCardPool?._id) return;
-    console.log("Addingcard", card);
-    const updatedCardPool: CardPool = {
-      _id: currentCardPool._id,
-      name: currentCardPool.name || '',
-      ruleSet: currentCardPool.ruleSet || '',
-      cardSets: currentCardPool.cardSets || [],
-      cards: currentCardPool?.cards ? [...currentCardPool.cards, card] : [card]
-    };
-    console.log(updatedCardPool);
-    setCurrentCardPool(updatedCardPool);
+  const handleAddCard = async (card: Card) => {
+    if (!currentCardPool?._id) throw new Error("No card pool id");
+    try {
+      const updatedCardPool = await addCardToCardPool(currentCardPool._id, card._id);
+      console.log("updatedCardPool", updatedCardPool);
+      setCurrentCardPool(updatedCardPool);
+    } catch (error) {
+      console.error("Error adding card to card pool", error);
+      throw error;
+    }
     setSearchTerm('');
     setSuggestedCards([]);
     setCurrentCardIndex(0);

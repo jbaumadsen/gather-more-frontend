@@ -5,7 +5,7 @@ import CardPoolListItem from './CardPoolListItem';
 const CardPoolList: React.FC = () => {
 
   const { cardPools } = useUserContext();
-  console.log("cardPools", cardPools);
+  // console.log("cardPools", cardPools);
   return (
     <div className="flex flex-col lg:w-1/4">
       <h1 className="text-2xl font-bold mb-4">Card Pool List</h1>

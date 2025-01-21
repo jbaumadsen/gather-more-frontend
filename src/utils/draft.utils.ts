@@ -19,7 +19,7 @@ export const pickCard = async(packId: string, cardId: string, teamId: string, dr
       Authorization: `Bearer ${localStorage.getItem('token')}`
     }
   });
-  console.log(response.data);
+  // console.log(response.data);
   return response.data;
 };
 

@@ -146,15 +146,15 @@ const Navbar: React.FC = () => {
               </button>
             </>
           )}
-          {user &&user?.username && <span className="text-lg text-gray-300 flex items-center">
+          {user && user?.username && <span className="text-lg text-gray-300 flex items-center">
             Welcome, {user?.username}!
           </span>}
-          {user && <button
+          <button
             onClick={handleLogout}
             className="bg-blue-500 text-white p-2 rounded hover:bg-red-700 transition duration-300"
           >
             Logout
-          </button>}
+          </button>
         </div>
       </div>
     </nav>

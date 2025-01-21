@@ -9,10 +9,9 @@
 
 // import { useState } from 'react';
 // import useUserContext from '../../hooks/useUserContext';
-import React, { useEffect } from 'react';
+import React from 'react';
 import useUserContext from '../../hooks/useUserContext';
 import AddCardToPoolForm from './AddCardToPoolForm';
-import { updateCardPool } from '../../utils/cardPool.utils';
 
 const EditCardPoolForm: React.FC = () => {
   const { currentCardPool } = useUserContext();
@@ -21,19 +20,12 @@ const EditCardPoolForm: React.FC = () => {
   //   console.log(currentCardPool);
   // }, [currentCardPool]);
 
-  const handleSave = async () => {
-    if (currentCardPool) {
-      await updateCardPool(currentCardPool);
-    }
-  }
-
   return (
     <div className="flex flex-col ">
       {currentCardPool ? (
         <div className="flex flex-col bg-green-100">
           <h2>Edit Card Pool: {currentCardPool.name}</h2>
           <AddCardToPoolForm />
-          <button className="bg-blue-500 text-white rounded-md p-2 w-1/4" onClick={handleSave}>Save</button>
         </div>
       ) : (
         <div>

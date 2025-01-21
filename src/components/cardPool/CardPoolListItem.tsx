@@ -10,7 +10,7 @@ const CardPoolListItem: React.FC<CardPoolListItemProps> = ({ cardPool }) => {
 
   const { setCurrentCardPool } = useUserContext();
   const handleEditCardPool = (cardPool: CardPool) => {
-    console.log("cardPool", cardPool);
+    // console.log("cardPool", cardPool);
     setCurrentCardPool(cardPool);
   }
 

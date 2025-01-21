@@ -103,20 +103,20 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
       setCurrentSeason(seasonData);
       
       if (draftData) {
-        console.log("draftData 106 context: ", draftData);
+        // console.log("draftData 106 context: ", draftData);
         setCurrentDraft(draftData.draft);
         setCurrentBoosterPackCards(draftData.boosterPackCards);
         setCurrentUserTeam(draftData.userTeam);
         setCurrentDraftTeams(draftData.teams);
       } else {
-        console.log("no draftData");
+        // console.log("no draftData");
         setCurrentDraft(null);
         setCurrentBoosterPackCards([]);
         setCurrentUserTeam(null);
         setCurrentDraftTeams([]);
       }
     } else {
-      console.log("no current league");
+      // console.log("no current league");
       setCurrentSeason(null);
       setCurrentDraft(null);
       setCurrentBoosterPackCards([]);
@@ -139,7 +139,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   const getLeagueData = async () => {
     if (token) {
       const leagueData = await fetchLeagueData(apiBaseUrl, token);
-      console.log("all leagueData", leagueData);
+      // console.log("all leagueData", leagueData);
       setOwnedLeagues(leagueData.ownedLeagues);
       setInvitedLeagues(leagueData.invitedLeagues);
       setTeamLeagues(leagueData.teamLeagues);
@@ -148,10 +148,10 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
 
   const getTeamCards = async () => {
     if (currentUserTeam) {
-      console.log("cards", cards);
+      // console.log("cards", cards);
       const teamCards = mapTeamCards(currentUserTeam.cards, cards)
         .filter((card): card is Card => card !== undefined);
-      console.log("teamCards", teamCards);
+      // console.log("teamCards", teamCards);
       if (teamCards.length > 0) { 
         setCurrentTeamCards(teamCards);
       }
@@ -159,18 +159,18 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   }
 
   const getBoosterPackCards = async () => {
-    console.log("currentUserTeam", currentUserTeam);
+    // console.log("currentUserTeam", currentUserTeam);
     if (currentUserTeam && currentUserTeam.packQueue[0]) {
       const boosterPackCards = await fetchBoosterPackCards(currentUserTeam.packQueue[0]);
-      console.log("boosterPackCards", boosterPackCards);
+      // console.log("boosterPackCards", boosterPackCards);
       setCurrentBoosterPackCards(boosterPackCards);
     }
   }
 
   const getDraftData = async () => {
-    console.log("currentDraft", currentDraft);
+    // console.log("currentDraft", currentDraft);
     if (currentDraft && currentDraft._id) {
-      console.log("getting draft data");
+      // console.log("getting draft data");
       const draftData = await fetchDraftData(currentDraft._id);
       setCurrentDraft(draftData.draft);
       setCurrentBoosterPackCards(draftData.boosterPackCards);
@@ -201,7 +201,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
       setInvitedLeagues(userData.allLeagues.invitedLeagues);
       setTeamLeagues(userData.allLeagues.teamLeagues);
       setCards(userData.cards);
-      console.log("userData", userData);
+      // console.log("userData", userData);
     } else {
       setUser(null);
       setLoading(false);

@@ -8,16 +8,25 @@ export const getCardPools = async () => {
       Authorization: `Bearer ${localStorage.getItem('token')}`
     }
   });
+  console.log("response", response);
   return response.data;
 }
 
 export const addCardToCardPool = async (cardPoolId: string, cardId: string) => {
-  const response = await axios.put(`${apiBaseUrl}/cardpool/${cardPoolId}/addCard/${cardId}`, {
+  try {
+    const response = await axios.post(`${apiBaseUrl}/cardpool/addCard`, {
+      cardPoolId,
+      cardId
+  }, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`
     }
-  });
-  return response.data;
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error adding card to card pool", error);
+    throw error;
+  }
 }
 
 // send the entire cardPool object to update the card pool

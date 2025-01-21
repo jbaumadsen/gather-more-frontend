@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { createCardPool } from '../../utils/cardPool.utils';
 import { CardPool } from '../../types/cardPool.types';
-// import useUserContext from '../../hooks/useUserContext';
+import useUserContext from '../../hooks/useUserContext';
 
 const CreateCardPoolForm: React.FC = () => {
   const [name, setName] = useState('');
@@ -9,7 +9,7 @@ const CreateCardPoolForm: React.FC = () => {
   const [cardSets, setCardSets] = useState<string[]>([]);
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  // const { setCurrentCardPool } = useUserContext();
+  const { setCurrentCardPool } = useUserContext();
 
   const handleSubmitNewCardPool = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,8 +17,10 @@ const CreateCardPoolForm: React.FC = () => {
       const newCardPool: CardPool = { name, ruleSet, cardSets, cards: [] };
       const response = await createCardPool(newCardPool);
       setSuccessMessage('Card pool created successfully!');
+      const updatedCardPool = response.data;
+      setCurrentCardPool(updatedCardPool);
 
-      console.log("response", response);
+      // console.log("response", response);
       // setCurrentCardPool(response.data);
     } catch {
       setError('Error creating card pool');

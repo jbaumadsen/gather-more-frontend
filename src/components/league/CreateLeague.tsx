@@ -11,7 +11,7 @@ const CreateLeague: React.FC = () => {
   const [successMessage] = useState('');
   const [error, setError] = useState('');
   const [showCreateLeague, setShowCreateLeague] = useState(false);
-  const { getLeagueData, createLeague, ownedLeagues } = useUserContext();
+  const { getLeagueData, createLeague } = useUserContext();
 
   const handleSubmitNewLeague = async (e: React.FormEvent) => {
     const splitCardSets = cardSets.split(',') || [];
@@ -24,7 +24,7 @@ const CreateLeague: React.FC = () => {
       }
     );
     getLeagueData();
-    console.log("league created : ", ownedLeagues);
+    // console.log("league created : ", ownedLeagues);
   };
 
   return (
