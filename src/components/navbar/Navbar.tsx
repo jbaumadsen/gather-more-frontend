@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useUserContext from '../../hooks/useUserContext'; // Assuming you're using user context
 import axios from 'axios';
+import { League } from '../../types/league.types';
 
 const envoronmentType = import.meta.env.VITE_ENVIRONMENT_TYPE;
 console.log("envoronmentType", envoronmentType);
 
 const Navbar: React.FC = () => {
-  const { setUser, setToken, token, user } = useUserContext();  // Access the user context to clear user data
+  const { setUser, setToken, token, user, createLeague } = useUserContext();  // Access the user context to clear user data
+  const [error, setError] = useState('');
   const navigate = useNavigate();  // React Router's useNavigate to redirect to other pages
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
   const handleLogout = () => {
     // Clear the user's token and user data
@@ -29,7 +32,6 @@ const Navbar: React.FC = () => {
       // save token to local storage
       localStorage.setItem('token', token);
       setToken(token);
-
 
       navigate('/');
     } catch (err) {
@@ -84,12 +86,43 @@ const Navbar: React.FC = () => {
   };
 
   const handleDeleteInfo = async () => {
-    await axios.delete('http://localhost:5000/api/league/all', {
+    await axios.delete(`${apiBaseUrl}/league/all`, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
+      
     });
-    navigate('/');
+
+    await createLeague({ name: "test", maxPlayers: 8, ruleSet: "test", cardSets: ["test"], hasDraft: false } as League).catch(
+      (error: Error) => {
+        console.error("Error creating league", error);
+        setError('Error creating league');
+      }
+    );
+    // await getLeagueData();
+    // setCurrentLeague(ownedLeagues[0]);
+    // await getSeasonData();
+    // const emails = ["secret7@agent.com", "secret8@agent.com", "secret9@agent.com"];
+    // for (const email of emails) {
+    //   const invite = {
+    //     inviteeEmail: email,
+    //     leagueId: currentLeague?._id,
+    //     seasonId: currentSeason?._id,
+    //   }
+    // try {
+    //   console.log("invite", invite);
+    //   console.log("currentLeague", currentLeague);
+    //   console.log("currentSeason", currentSeason);
+    //   const response = await axios.post(`${apiBaseUrl}/season/invite`, invite, {headers:{Authorization: `Bearer ${localStorage.getItem('token')}`}});
+    //   console.log("response", response);
+    // } catch (error) 
+    //   {
+    //     setError("Error inviting player");
+    //     console.log("error", error);
+    //   }
+    // }
+
+
   };
 
 
@@ -108,7 +141,10 @@ const Navbar: React.FC = () => {
           {/* <Link to="/display-all-context" className="hover:text-gray-300 flex items-center">
             Display All Context
           </Link> */}
+          {error && <p className="text-red-500">{error}</p>}
           <Link to="/card-pool-manager" className="hover:text-gray-300 flex items-center">Card Pool Manager</Link>
+
+          
           
           {envoronmentType === 'development' && (
             <>
@@ -142,7 +178,7 @@ const Navbar: React.FC = () => {
                 onClick={handleDeleteInfo}
                 className="bg-gray-500 text-white p-2 rounded hover:bg-green-700 transition duration-300"
               >
-                Delete Info
+                Delete Info/Reset
               </button>
             </>
           )}

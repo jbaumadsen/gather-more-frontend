@@ -5,12 +5,13 @@ import DraftCardGrid from "./DraftCardGrid";
 import TeamCardGrid from "../team/TeamCardGrid";
 
 const DraftBoard = () => {
-  const { currentLeague, currentDraftTeams } = useUserContext();
+  const { currentLeague, currentDraftTeams, currentDraft } = useUserContext();
 
 
   return (
     <div className="flex flex-col m-4">
       <h1 className="text-4xl font-bold">{currentLeague?.name} League</h1>
+      <span className="text-2xl">Round {currentDraft?.currentRound}</span>
       <div className="flex flex-col mt-4">
         <h2 className="text-2xl font-bold border-b-2 border-gray-300 pb-2">Teams</h2>
         {currentDraftTeams.map((team) => (

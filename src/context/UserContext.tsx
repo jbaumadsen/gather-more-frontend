@@ -99,7 +99,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   const getSeasonData = async () => {
     if (currentLeague) {
       const { seasonData, draftData } = await getAllSeasonData(currentLeague);
-      // console.log("seasonData", seasonData);
+      console.log("seasonData", seasonData);
       setCurrentSeason(seasonData);
       
       if (draftData) {
@@ -126,9 +126,12 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     }
   }
 
-
+  // useEffect(() => {
+  //   getUserData();
+  // }, [user]);
 
   useEffect(() => {
+    console.log("currentUserTeam", currentUserTeam);
     getTeamCards();
   }, [currentUserTeam]);
 
