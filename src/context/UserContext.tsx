@@ -7,13 +7,13 @@ import { CardPool } from '../types/cardPool.types';
 import { Card } from '../types/card.types';
 import { Draft } from '../types/draft.types';
 import { Team } from '../types/team.types';
-import { getAllSeasonData } from '../utils/season.utils';
-import { fetchUserData } from '../utils/user.utils';
-import { fetchLeagueData, postLeague } from '../utils/league.utils';
-import { fetchSets } from '../utils/set.utils';
-import { fetchDraftData } from '../utils/draft.utils';  
-import { fetchBoosterPackCards } from '../utils/boosterPack.utils';
-import { mapTeamCards } from '../utils/cards';
+import { getAllSeasonData } from '../services/season.services';
+import { fetchUserData } from '../services/user.services';
+import { fetchLeagueData, postLeague } from '../services/league.services';
+import { fetchSets } from '../services/set.services';
+import { fetchDraftData } from '../services/draft.services';  
+import { fetchBoosterPackCards } from '../services/boosterPack.services';
+import { mapTeamCards } from '../services/cards.services';
 
 // Define context interface
 interface IUserContext {
@@ -22,6 +22,7 @@ interface IUserContext {
   loading: boolean;
   setToken: React.Dispatch<React.SetStateAction<string | null>>;
   sets: Set[];
+  setSets: React.Dispatch<React.SetStateAction<Set[]>>;
   ownedLeagues: League[];
   setOwnedLeagues: React.Dispatch<React.SetStateAction<League[]>>;
   invitedLeagues: League[];
@@ -59,6 +60,7 @@ interface IUserContext {
   getSeasonData: () => Promise<void>;
   currentTeamCards: Card[];
   setCurrentTeamCards: React.Dispatch<React.SetStateAction<Card[]>>;
+  getUserData: () => Promise<void>;
 }
 
 
@@ -99,7 +101,8 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   const getSeasonData = async () => {
     if (currentLeague) {
       const { seasonData, draftData } = await getAllSeasonData(currentLeague);
-      console.log("seasonData", seasonData);
+      // console.log("currentLeague", currentLeague);
+      // console.log("seasonData", seasonData);
       setCurrentSeason(seasonData);
       
       if (draftData) {
@@ -131,11 +134,15 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   // }, [user]);
 
   useEffect(() => {
-    console.log("currentUserTeam", currentUserTeam);
+    // console.log("currentUserTeam", currentUserTeam);
     getTeamCards();
   }, [currentUserTeam]);
 
   useEffect(() => {
+    setCurrentDraft(null);
+    setCurrentBoosterPackCards([]);
+    setCurrentUserTeam(null);
+    setCurrentDraftTeams([]);
     getSeasonData();
   }, [currentLeague]);
 
@@ -188,6 +195,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
       try {
         const newLeague = await postLeague(apiBaseUrl, token, league);
         setOwnedLeagues([...ownedLeagues, newLeague]);
+        setInvitedLeagues([...invitedLeagues, newLeague]);
       } catch (error) {
         console.error("Error creating league", error);
         throw error;
@@ -204,15 +212,26 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
       setInvitedLeagues(userData.allLeagues.invitedLeagues);
       setTeamLeagues(userData.allLeagues.teamLeagues);
       setCards(userData.cards);
+      setSets(await fetchSets(token));
       // console.log("userData", userData);
     } else {
-      setUser(null);
-      setLoading(false);
+      clearUserData();
     }
   }
-  useEffect(() => {
-    getUserData();
 
+  const clearUserData = () => {
+    setUser(null);
+    setLoading(false);
+    setCurrentLeague(null);
+    setCurrentSeason(null);
+    setCurrentDraft(null);
+    setCurrentBoosterPackCards([]);
+    setCurrentUserTeam(null);
+    setCurrentDraftTeams([]);
+  }
+
+  useEffect(() => {
+      getUserData();
   }, [token]);
 
   useEffect(() => {
@@ -225,16 +244,8 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     }
   }, [seasons, user]);
 
-  const getSets = async () => {
-    if (token) {
-      const sets = await fetchSets(apiBaseUrl, token);
-      setSets(sets);
-    }
-  }
-
   useEffect(() => {
     setToken(localStorage.getItem('token'));
-    getSets();
   }, []);
 
   return (
@@ -244,6 +255,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
       loading, 
       setToken, 
       sets, 
+      setSets,
       ownedLeagues, 
       setOwnedLeagues, 
       invitedLeagues, 
@@ -280,7 +292,8 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
       createLeague,
       getSeasonData,
       currentTeamCards,
-      setCurrentTeamCards }}>
+      setCurrentTeamCards,
+      getUserData }}>
       {children}
     </UserContext.Provider>
   );

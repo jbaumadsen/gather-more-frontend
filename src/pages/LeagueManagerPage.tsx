@@ -4,19 +4,17 @@ import CreateDraftForm from '../components/draft/CreateDraftForm';
 import DraftBoard from '../components/draft/DraftBoard';
 import LeagueSideBar from '../components/league/LeagueSideBar/LeagueSideBar';
 import InviteComponent from '../components/league/InviteComponent';
-import RegisterPage from './RegisterPage';
+import UserGuard from '../components/UserGuard';
 
 const LeagueManagerPage: React.FC = () => {
 
-  const { currentLeague, currentSeason, currentDraft, user } = useUserContext();
+  const { currentLeague, currentSeason, currentDraft } = useUserContext();
 
   return (
-    <>
-      {!user && <RegisterPage />}
-      {user && (
+    <UserGuard>
       <div className="flex  w-full">
-        <LeagueSideBar />        
-        <div className="flex flex-col w-3/4">
+          <LeagueSideBar />        
+          <div className="flex flex-col w-3/4">
           {currentLeague && currentSeason && !currentDraft && (
             <div className="flex flex-col w-full m-4">
               <InviteComponent />
@@ -28,10 +26,9 @@ const LeagueManagerPage: React.FC = () => {
               <DraftBoard />
             </div>
           )}
+          </div>
         </div>
-      </div>
-    )}
-    </>
+      </UserGuard>
   );
 };
 

@@ -1,25 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useUserContext from '../../hooks/useUserContext'; // Assuming you're using user context
 import axios from 'axios';
-import { League } from '../../types/league.types';
 
 const envoronmentType = import.meta.env.VITE_ENVIRONMENT_TYPE;
 console.log("envoronmentType", envoronmentType);
 
 const Navbar: React.FC = () => {
-  const { setUser, setToken, token, user, createLeague } = useUserContext();  // Access the user context to clear user data
-  const [error, setError] = useState('');
+  const { setToken, token, user, getUserData } = useUserContext();  // Access the user context to
   const navigate = useNavigate();  // React Router's useNavigate to redirect to other pages
   const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
   const handleLogout = () => {
     // Clear the user's token and user data
     localStorage.removeItem('token');
-    setUser(null);
-    
-    // Redirect to the login page
-    navigate('/login');
+    setToken(null);
   };
 
   const handleSecret6Login = async (e: React.FormEvent) => {
@@ -32,6 +27,7 @@ const Navbar: React.FC = () => {
       // save token to local storage
       localStorage.setItem('token', token);
       setToken(token);
+      getUserData();
 
       navigate('/');
     } catch (err) {
@@ -49,6 +45,7 @@ const Navbar: React.FC = () => {
       // save token to local storage
       localStorage.setItem('token', token);
       setToken(token);
+      getUserData();
     } catch (err) {
       console.error('Error logging in:', err);
     }
@@ -64,6 +61,7 @@ const Navbar: React.FC = () => {
       // save token to local storage
       localStorage.setItem('token', token);
       setToken(token);
+      getUserData();
     } catch (err) {
       console.error('Error logging in:', err);
     }
@@ -80,6 +78,7 @@ const Navbar: React.FC = () => {
       // save token to local storage
       localStorage.setItem('token', token);
       setToken(token);
+      getUserData();
     } catch (err) {
       console.error('Error logging in:', err);
     }
@@ -93,36 +92,6 @@ const Navbar: React.FC = () => {
       
     });
 
-    await createLeague({ name: "test", maxPlayers: 8, ruleSet: "test", cardSets: ["test"], hasDraft: false } as League).catch(
-      (error: Error) => {
-        console.error("Error creating league", error);
-        setError('Error creating league');
-      }
-    );
-    // await getLeagueData();
-    // setCurrentLeague(ownedLeagues[0]);
-    // await getSeasonData();
-    // const emails = ["secret7@agent.com", "secret8@agent.com", "secret9@agent.com"];
-    // for (const email of emails) {
-    //   const invite = {
-    //     inviteeEmail: email,
-    //     leagueId: currentLeague?._id,
-    //     seasonId: currentSeason?._id,
-    //   }
-    // try {
-    //   console.log("invite", invite);
-    //   console.log("currentLeague", currentLeague);
-    //   console.log("currentSeason", currentSeason);
-    //   const response = await axios.post(`${apiBaseUrl}/season/invite`, invite, {headers:{Authorization: `Bearer ${localStorage.getItem('token')}`}});
-    //   console.log("response", response);
-    // } catch (error) 
-    //   {
-    //     setError("Error inviting player");
-    //     console.log("error", error);
-    //   }
-    // }
-
-
   };
 
 
@@ -130,8 +99,9 @@ const Navbar: React.FC = () => {
     <nav className="bg-gray-800 text-white p-4">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-lg font-semibold">
-          <Link to="/" className="hover:text-gray-300">
-            GatherMore
+          <Link to="/" className="hover:text-gray-300 flex items-center gap-2">
+            <img src="/gather-more-icon.png" alt="GatherMore" className="w-16 h-16" />
+            <span className="text-2xl font-bold">GatherMore</span>
           </Link>
         </div>
         <div className="flex space-x-4">
@@ -141,14 +111,26 @@ const Navbar: React.FC = () => {
           {/* <Link to="/display-all-context" className="hover:text-gray-300 flex items-center">
             Display All Context
           </Link> */}
-          {error && <p className="text-red-500">{error}</p>}
           <Link to="/card-pool-manager" className="hover:text-gray-300 flex items-center">Card Pool Manager</Link>
-
-          
-          
-          {envoronmentType === 'development' && (
-            <>
-              <button
+          {user && user?.username && <span className="text-lg text-gray-300 flex items-center">
+            Welcome, {user?.username}!
+          </span>}
+          {user && user?.roles?.includes('admin') && (
+            <Link to="/admin-panel" className="hover:text-gray-300 flex items-center">Admin Panel</Link>
+          )}
+          <button
+            onClick={handleLogout}
+            className="bg-blue-500 text-white p-2 rounded hover:bg-red-700 transition duration-300"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+      {envoronmentType === 'development' && (
+        <div className="flex flex-row justify-center items-center gap-2">
+          <>
+          <>
+            <button
                 onClick={handleSecret6Login}
                 className="bg-gray-500 text-white p-2 rounded hover:bg-green-700 transition duration-300"
               >
@@ -181,18 +163,9 @@ const Navbar: React.FC = () => {
                 Delete Info/Reset
               </button>
             </>
-          )}
-          {user && user?.username && <span className="text-lg text-gray-300 flex items-center">
-            Welcome, {user?.username}!
-          </span>}
-          <button
-            onClick={handleLogout}
-            className="bg-blue-500 text-white p-2 rounded hover:bg-red-700 transition duration-300"
-          >
-            Logout
-          </button>
+          </>
         </div>
-      </div>
+      )}
     </nav>
   );
 };

@@ -11,8 +11,8 @@ const CardPoolDisplay: React.FC = () => {
     // console.log("cards", cards);
     if (!currentCardPool) return;
     // console.log("currentcardpool exists");
-    const updatedCardPoolCards = currentCardPool?.cards
-      .map((card: Card) => cards.find((c: Card) => c._id.toString() === card.toString()))
+    const updatedCardPoolCards: Card[] = currentCardPool?.cards
+      .map((cardMultiverseId: string) => cards.find((c: Card) => c.multiverseId === cardMultiverseId))
       .filter((card): card is Card => card !== undefined);
     // console.log("updatedCardPoolCards", updatedCardPoolCards);
     setCardPoolCards(updatedCardPoolCards);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createCardPool } from '../../utils/cardPool.utils';
+import { createCardPool } from '../../services/cardPool.services';
 import { CardPool } from '../../types/cardPool.types';
 import useUserContext from '../../hooks/useUserContext';
 
@@ -17,7 +17,7 @@ const CreateCardPoolForm: React.FC = () => {
       const newCardPool: CardPool = { name, ruleSet, cardSets, cards: [] };
       const response = await createCardPool(newCardPool);
       setSuccessMessage('Card pool created successfully!');
-      const updatedCardPool = response.data;
+      const updatedCardPool = response;
       setCurrentCardPool(updatedCardPool);
 
       // console.log("response", response);

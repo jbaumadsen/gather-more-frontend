@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import useUserContext from '../../hooks/useUserContext';
 import { Card } from '../../types/card.types';
-import { addCardToCardPool } from '../../utils/cardPool.utils';
+import { addCardToCardPool } from '../../services/cardPool.services';
 
 const AddCardToPoolForm: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -21,8 +21,9 @@ const AddCardToPoolForm: React.FC = () => {
 
   const handleAddCard = async (card: Card) => {
     if (!currentCardPool?._id) throw new Error("No card pool id");
+    console.log("card", card);
     try {
-      const updatedCardPool = await addCardToCardPool(currentCardPool._id, card._id);
+      const updatedCardPool = await addCardToCardPool(currentCardPool._id, card.multiverseId);
       console.log("updatedCardPool", updatedCardPool);
       setCurrentCardPool(updatedCardPool);
     } catch (error) {

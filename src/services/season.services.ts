@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { fetchDraftData } from './draft.utils';
+import { fetchDraftData } from './draft.services';
 import { League } from '../types/league.types';
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
@@ -9,12 +9,17 @@ export const getSeason = async(seasonId: string) => {
       Authorization: `Bearer ${localStorage.getItem('token')}`
     }
   });
+  // console.log("getSeason line 12 response", response);
   return response.data;
 };
 
 export const getAllSeasonData = async (currentLeague: League) => {
-
-  const seasonData = await getSeason(currentLeague.currentSeasonId || '');
+  // console.log("getting season data");
+  if (!currentLeague.currentSeasonId && !currentLeague.currentSeasonId?.toString()) {
+    console.log("no current season id");
+    return { seasonData: null, draftData: null };
+  }
+  const seasonData = await getSeason(currentLeague.currentSeasonId?.toString());
   // console.log("seasonData in utils", seasonData);
   let draftData = null;
   if (seasonData.draft) {

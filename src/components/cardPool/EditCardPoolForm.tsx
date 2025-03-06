@@ -1,35 +1,33 @@
-// a form to edit a card pool primarily for adding/removing cards from the pool
-// the form should have a pane with the images of the cards in the pool just the top of each card should be visible until the user hovers over the card
-// clicking on a card should remove it from the pool
-
-// there should be an input that allows the user to search for a card by name that updates as the user types with the next 10 results of the search pressing enter should add the top suggested card to the pool
-
-// toggle buttons for the sets that exist in the db should be visible and the user should be able to select which sets they want to include in the pool
-// the user should be able to save the changes
-
-// import { useState } from 'react';
-// import useUserContext from '../../hooks/useUserContext';
 import React from 'react';
 import useUserContext from '../../hooks/useUserContext';
 import AddCardToPoolForm from './AddCardToPoolForm';
+import CardPoolCsvUpload from './CardPoolCsvUpload';
 
 const EditCardPoolForm: React.FC = () => {
   const { currentCardPool } = useUserContext();
 
-  // useEffect(() => {
-  //   console.log(currentCardPool);
-  // }, [currentCardPool]);
-
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col">
       {currentCardPool ? (
-        <div className="flex flex-col bg-green-100">
-          <h2>Edit Card Pool: {currentCardPool.name}</h2>
-          <AddCardToPoolForm />
+        <div className="flex flex-col bg-green-100 p-4 rounded-lg">
+          <h2 className="text-xl font-bold mb-4">Edit Card Pool: {currentCardPool.name}</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Add Cards</h3>
+              <AddCardToPoolForm />
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Bulk Import</h3>
+              <CardPoolCsvUpload />
+            </div>
+          </div>
         </div>
       ) : (
-        <div>
-          <h2>No card pool selected</h2>
+        <div className="bg-gray-100 p-4 rounded-lg text-center">
+          <h2 className="text-lg text-gray-600">No card pool selected</h2>
+          <p className="text-gray-500 mt-2">Please select or create a card pool to edit</p>
         </div>
       )}
     </div>

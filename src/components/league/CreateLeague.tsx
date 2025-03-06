@@ -4,20 +4,21 @@ import { League } from '../../types/league.types';
 
 const CreateLeague: React.FC = () => {
   const [name, setName] = useState('');
-  const [maxPlayers, setMaxPlayers] = useState(8);
-  const [ruleSet, setRuleSet] = useState('');
-  const [cardSets, setCardSets] = useState('');
-  const [hasDraft, setHasDraft] = useState(false);
+  // const [maxPlayers, setMaxPlayers] = useState(8);
+  // const [ruleSet, setRuleSet] = useState('');
+  // const [cardSets, setCardSets] = useState('');
+  // const [hasDraft, setHasDraft] = useState(false);
   const [successMessage] = useState('');
   const [error, setError] = useState('');
   const [showCreateLeague, setShowCreateLeague] = useState(false);
   const { getLeagueData, createLeague } = useUserContext();
 
   const handleSubmitNewLeague = async (e: React.FormEvent) => {
-    const splitCardSets = cardSets.split(',') || [];
+
+    // const splitCardSets = cardSets.split(',') || [];
 
     e.preventDefault();
-    await createLeague({ name, maxPlayers, ruleSet, cardSets: splitCardSets, hasDraft } as League).catch(
+    await createLeague({ name } as League).catch(
       (error: Error) => {
         console.error("Error creating league", error);
         setError('Error creating league');
@@ -42,7 +43,7 @@ const CreateLeague: React.FC = () => {
             placeholder="League Name"
             required
           />
-          <input
+          {/* <input
             type="number"
             className="p-2  border border-gray-300 rounded-md"
             value={maxPlayers}
@@ -71,7 +72,7 @@ const CreateLeague: React.FC = () => {
               onChange={() => setHasDraft(!hasDraft)}
             />
             Has Draft
-          </label>
+          </label> */}
           <button type="submit" className="w-fit bg-blue-500 text-white p-2 rounded-md">Create League</button>
         </form>
       }

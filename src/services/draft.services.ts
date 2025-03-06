@@ -13,8 +13,8 @@ export const createDraft = async(draft: Draft) => {
   return response.data;
 };
 
-export const pickCard = async(packId: string, cardId: string, teamId: string, draftId: string) => {
-  const response = await axios.post(`${apiBaseUrl}/draft/pick`, { packId, cardId, teamId, draftId }, {
+export const pickCard = async(packId: string, multiverseId: string, teamId: string, draftId: string) => {
+  const response = await axios.post(`${apiBaseUrl}/draft/pick`, { packId, multiverseId, teamId, draftId }, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`
     }

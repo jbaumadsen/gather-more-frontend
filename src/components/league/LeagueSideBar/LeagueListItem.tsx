@@ -1,6 +1,6 @@
 import { League } from '../../../types/league.types';
 import useLeagueContext from '../../../hooks/useUserContext';
-import { acceptInvite } from '../../../utils/inviteUtils';
+import { acceptInvite } from '../../../services/invite.services';
 import { useState } from 'react'; 
 
 interface LeagueListItemProps {
@@ -12,11 +12,17 @@ const LeagueListItem: React.FC<LeagueListItemProps> = ({ league }) => {
   const [accepting, setAccepting] = useState(false);
 
   const handleAcceptInvite = async (seasonId: string) => {
+    console.log("accepting invite", seasonId);
     setAccepting(true);
-    await acceptInvite(seasonId);
-    setAccepting(false);
-    setCurrentLeague(league);
-    getLeagueData();
+    try {
+      await acceptInvite(seasonId);
+      setAccepting(false);
+      setCurrentLeague(league);
+      await getLeagueData();
+    } catch (error) {
+      console.error("Error accepting invite", error);
+      setAccepting(false);
+    }
   };
 
   const isInvitedLeague = invitedLeagues.some((invitedLeague: League) => invitedLeague._id === league._id);
