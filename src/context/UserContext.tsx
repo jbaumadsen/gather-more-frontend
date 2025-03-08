@@ -7,13 +7,13 @@ import { CardPool } from '../types/cardPool.types';
 import { Card } from '../types/card.types';
 import { Draft } from '../types/draft.types';
 import { Team } from '../types/team.types';
-import { getAllSeasonData } from '../services/season.services';
-import { fetchUserData } from '../services/user.services';
-import { fetchLeagueData, postLeague } from '../services/league.services';
-import { fetchSets } from '../services/set.services';
-import { fetchDraftData } from '../services/draft.services';  
-import { fetchBoosterPackCards } from '../services/boosterPack.services';
-import { mapTeamCards } from '../services/cards.services';
+import { getAllSeasonData } from '../services/season.service';
+import { fetchUserData } from '../services/user.service';
+import { fetchLeagueData, postLeague } from '../services/league.service';
+import { SetService } from '../services/set.service';
+import { fetchDraftData } from '../services/draft.service';  
+import { fetchBoosterPackCards } from '../services/boosterPack.service';
+import { mapTeamCards } from '../services/card.service';
 
 // Define context interface
 interface IUserContext {
@@ -212,7 +212,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
       setInvitedLeagues(userData.allLeagues.invitedLeagues);
       setTeamLeagues(userData.allLeagues.teamLeagues);
       setCards(userData.cards);
-      setSets(await fetchSets(token));
+      setSets(await SetService.fetchSets());
       // console.log("userData", userData);
     } else {
       clearUserData();

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { createSet } from '../../services/set.services';
+import { SetService } from '../../services/set.service';
 import useUserContext from '../../hooks/useUserContext';
 
 const CreateSetForm = () => {
@@ -31,7 +31,7 @@ const CreateSetForm = () => {
       return;
     }
     try {
-      const response = await createSet(formData.name, formData.setCode, token);
+      const response = await SetService.createSet(formData.name, formData.setCode, token);
       setSuccess(true);
       setFormData({ name: '', setCode: '' }); // Reset form
       setSets([...sets, response]);

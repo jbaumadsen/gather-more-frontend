@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { fetchDraftData } from './draft.services';
+import { fetchDraftData } from './draft.service';
 import { League } from '../types/league.types';
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 

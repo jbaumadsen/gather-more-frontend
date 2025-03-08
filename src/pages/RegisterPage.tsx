@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import useUserContext from '../hooks/useUserContext';
-import { authUtils } from '../services/auth.services';
+import { authUtils } from '../services/auth.service';
 
 const RegisterPage: React.FC = () => {
   const { setToken } = useUserContext();

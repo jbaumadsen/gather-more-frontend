@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Papa from 'papaparse';
 import useUserContext from '../../hooks/useUserContext';
-import { addCardsToPool } from '../../services/cardPool.services';
+import { useCardPool } from '../../context/cardPools/useCardPool';
+
 
 interface CSVCardEntry {
   name: string;
@@ -12,7 +13,14 @@ interface CSVCardEntry {
 }
 
 const CardPoolCsvUpload: React.FC = () => {
-  const { cards, currentCardPool, setCurrentCardPool, token } = useUserContext();
+  const { cards } = useUserContext();
+
+  const { 
+    currentCardPool,
+    addCardsToPool,
+    isLoading: isCardPoolLoading 
+  } = useCardPool();
+
   const [fileName, setFileName] = useState<string>('');
   const [processing, setProcessing] = useState<boolean>(false);
   const [results, setResults] = useState<{
@@ -103,7 +111,7 @@ const CardPoolCsvUpload: React.FC = () => {
         if (!card || !card.name || !card.set) return false;
         
         return card.name.toLowerCase() === entry.name.toLowerCase() && 
-               card.set.toLowerCase() === entry.set.toLowerCase();
+          card.set.toLowerCase() === entry.set.toLowerCase();
       });
 
       if (matchingCards.length === 0) {
@@ -122,19 +130,10 @@ const CardPoolCsvUpload: React.FC = () => {
     // Update card pool with new cards using the service
     if (added.length > 0) {
       try {
-        if (!currentCardPool._id) {
-          throw new Error('No card pool id');
-        }
-        if (!token) {
-          throw new Error('No token');
-        }
-        // Call the service to add cards to the pool
-        const updatedCardPool = await addCardsToPool(currentCardPool._id, added, token);
-        
-        // Update the current card pool in the context
-        setCurrentCardPool(updatedCardPool);
+        await addCardsToPool(added);
       } catch (err) {
         setError(`Failed to update card pool: ${err instanceof Error ? err.message : String(err)}`);
+        setProcessing(false);
       }
     }
 
@@ -154,13 +153,18 @@ const CardPoolCsvUpload: React.FC = () => {
       </p>
       
       <div className="flex items-center mb-3">
-        <label className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md cursor-pointer">
+        <label className={`py-2 px-4 rounded-md cursor-pointer ${
+          currentCardPool && !isCardPoolLoading && !processing
+            ? 'bg-blue-500 hover:bg-blue-600 text-white'
+            : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+        }`}>
           Select CSV File
           <input 
             type="file" 
             className="hidden" 
             accept=".csv" 
             onChange={handleFileUpload} 
+            disabled={!currentCardPool || isCardPoolLoading || processing}
           />
         </label>
         <span className="ml-3 text-gray-600">
@@ -168,13 +172,13 @@ const CardPoolCsvUpload: React.FC = () => {
         </span>
       </div>
       
-      {processing && (
+      {(processing || isCardPoolLoading) && (
         <div className="flex items-center mt-2">
           <svg className="animate-spin h-5 w-5 mr-3 text-blue-500" viewBox="0 0 24 24">
             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"></circle>
             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
           </svg>
-          <p className="text-gray-500">Processing file...</p>
+          <p className="text-gray-500">Processing...</p>
         </div>
       )}
       

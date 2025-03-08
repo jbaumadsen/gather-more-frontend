@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createCardPool } from '../../services/cardPool.services';
+import { createCardPool } from '../../services/cardPools/cardPool.service';
 import { CardPool } from '../../types/cardPool.types';
 import useUserContext from '../../hooks/useUserContext';
 

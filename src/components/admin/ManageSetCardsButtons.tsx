@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import useUserContext from "../../hooks/useUserContext";
-import { importSetCards, deleteSetCards } from "../../services/cards.services";
-import { fetchSets } from "../../services/set.services";
+import { SetService } from "../../services/set.service";
 import FileUploadInput from './FileUploadInput';
 import { Card } from '../../types/card.types';
 
@@ -35,6 +34,8 @@ const ManageSetCardsButtons: React.FC = () => {
     
     if (token && set) {
       try {
+
+        const setCards = cardsData.filter((card) => card.set.toLowerCase() === set.setCode.toLowerCase());
         // Set up a listener for batch updates
         const originalFetch = window.fetch;
         window.fetch = function(input, init) {
@@ -60,14 +61,16 @@ const ManageSetCardsButtons: React.FC = () => {
           
           return response;
         };
+
+
         
-        const response = await importSetCards(set, token, cardsData);
+        const response = await SetService.importSetCards(set, token, setCards);
         console.log("response", response);
         
         // Restore original fetch
         window.fetch = originalFetch;
         
-        setSets(await fetchSets(token));
+        setSets(await SetService.fetchSets());
       } catch (error: unknown) {
         console.error("Import error:", error);
         setImportError(error instanceof Error ? error.message : "An error occurred during import");
@@ -84,9 +87,9 @@ const ManageSetCardsButtons: React.FC = () => {
     const set = sets.find((set) => set.name === setName);
     
     if (token && set) {
-      const response = await deleteSetCards(set, token);
+      const response = await SetService.removeSetCards(set);
       console.log("response", response);
-      setSets(await fetchSets(token));
+      setSets(await SetService.fetchSets());
     } else {
       console.log("No token found");
     }

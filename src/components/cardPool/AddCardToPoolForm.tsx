@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import useUserContext from '../../hooks/useUserContext';
 import { Card } from '../../types/card.types';
-import { addCardToCardPool } from '../../services/cardPool.services';
+import { addCardToCardPool } from '../../services/cardPools/cardPool.service';
 
 const AddCardToPoolForm: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');

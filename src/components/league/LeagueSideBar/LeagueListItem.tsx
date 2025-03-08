@@ -1,6 +1,6 @@
 import { League } from '../../../types/league.types';
 import useLeagueContext from '../../../hooks/useUserContext';
-import { acceptInvite } from '../../../services/invite.services';
+import { acceptInvite } from '../../../services/invite.service';
 import { useState } from 'react'; 
 
 interface LeagueListItemProps {

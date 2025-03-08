@@ -15,7 +15,7 @@ const CardComponent = ({ card }: { card: Card }) => {
         <h3 className="font-bold mb-1">{card.name}</h3>
         <p className="text-gray-600 text-xs mb-2">{card.set}</p>
         <p className="text-xs">
-          <span className="font-semibold">Mana Cost:</span> {card.cost}
+          <span className="font-semibold">Mana Cost:</span> {card.cmc}
         </p>
         <p className="text-xs">
           <span className="font-semibold">Type:</span> {card.type}
