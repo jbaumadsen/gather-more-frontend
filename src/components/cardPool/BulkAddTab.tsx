@@ -1,9 +1,9 @@
 import React from 'react';
 import CardPoolCsvUpload from './CardPoolCsvUpload';
-import useUserContext from '../../hooks/useUserContext';
+import useCardPool from '../../context/cardPools/useCardPool';
 
 const BulkAddTab: React.FC = () => {
-  const { currentCardPool } = useUserContext();
+  const { currentCardPool } = useCardPool();
 
   if (!currentCardPool) {
     return (

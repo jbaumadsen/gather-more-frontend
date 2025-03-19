@@ -3,11 +3,11 @@ import CardPoolTabs from '../components/cardPool/CardPoolTabs';
 import CreateCardPoolTab from '../components/cardPool/CreateCardPoolTab';
 import EditCardPoolTab from '../components/cardPool/EditCardPoolTab';
 import BulkAddTab from '../components/cardPool/BulkAddTab';
-import useUserContext from '../hooks/useUserContext';
+import useCardPool from '../context/cardPools/useCardPool';
 
 const CardPoolManager: React.FC = () => {
   const [activeTab, setActiveTab] = useState('create');
-  const { currentCardPool } = useUserContext();
+  const { currentCardPool } = useCardPool();
 
   const handleTabChange = (tabId: string) => {
     setActiveTab(tabId);

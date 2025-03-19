@@ -37,8 +37,6 @@ interface IUserContext {
   token: string | null;
   teamLeagues: League[];
   setTeamLeagues: React.Dispatch<React.SetStateAction<League[]>>;
-  currentCardPool: CardPool | null;
-  setCurrentCardPool: React.Dispatch<React.SetStateAction<CardPool | null>>;
   cardPools: CardPool[];
   setCardPools: React.Dispatch<React.SetStateAction<CardPool[]>>;
   cards: Card[];
@@ -88,7 +86,6 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   const [currentLeague, setCurrentLeague] = useState<League | null>(null);
   const [currentSeason, setCurrentSeason] = useState<Season | null>(null);
   const [invitedSeasons, setInvitedSeasons] = useState<string[]>([]);
-  const [currentCardPool, setCurrentCardPool] = useState<CardPool | null>(null);
   const [cardPools, setCardPools] = useState<CardPool[]>([]);
   const [cards, setCards] = useState<Card[]>([]);
   const [acceptingInvite, setAcceptingInvite] = useState(false);
@@ -270,8 +267,6 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
       setCurrentSeason, 
       invitedSeasons, 
       token, 
-      currentCardPool, 
-      setCurrentCardPool, 
       cardPools, 
       setCardPools, 
       cards, 

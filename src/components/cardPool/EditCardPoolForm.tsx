@@ -1,10 +1,10 @@
 import React from 'react';
-import useUserContext from '../../hooks/useUserContext';
+import useCardPool from '../../context/cardPools/useCardPool';
 import AddCardToPoolForm from './AddCardToPoolForm';
 import CardPoolCsvUpload from './CardPoolCsvUpload';
 
 const EditCardPoolForm: React.FC = () => {
-  const { currentCardPool } = useUserContext();
+  const { currentCardPool } = useCardPool();
 
   return (
     <div className="flex flex-col">

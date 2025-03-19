@@ -60,12 +60,19 @@ const useCardFilters = () => {
   const filterCards = (filters: FilterCriteria): Card[] => {
     let results = [...cards];
 
-    // Filter by card pool
-    if (filters.showCardPoolOnly && currentCardPool) {
-      results = results.filter(card => 
-        currentCardPool.cards.includes(card.multiverseId)
-      );
-    }
+  // Filter by card pool 
+  console.log("results[0] in useCardFilters ln 64", results[0]);
+  console.log("currentCardPool in useCardFilters ln 67", currentCardPool);
+  
+if (filters.showCardPoolOnly && currentCardPool) {
+  console.log("currentCardPool in useCardFilters ln 67", currentCardPool.cards[0]);
+  results = results.filter(card => 
+    currentCardPool.cards.some(poolCard => 
+      typeof poolCard === 'string' && 
+      poolCard === card.multiverseId
+    )
+  );
+}
 
     // Filter by search term
     if (filters.searchTerm) {

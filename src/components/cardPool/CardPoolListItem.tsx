@@ -1,6 +1,6 @@
 import React from 'react';
 import { CardPool } from '../../types/cardPool.types';
-import useUserContext from '../../hooks/useUserContext';
+import useCardPool from '../../context/cardPools/useCardPool';
 
 interface CardPoolListItemProps {
   cardPool: CardPool;
@@ -8,7 +8,7 @@ interface CardPoolListItemProps {
 
 const CardPoolListItem: React.FC<CardPoolListItemProps> = ({ cardPool }) => {
 
-  const { setCurrentCardPool } = useUserContext();
+  const { setCurrentCardPool } = useCardPool();
   const handleEditCardPool = (cardPool: CardPool) => {
     console.log("cardPool", cardPool);
     setCurrentCardPool(cardPool);

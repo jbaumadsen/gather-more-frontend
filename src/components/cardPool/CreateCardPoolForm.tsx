@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { createCardPool } from '../../services/cardPools/cardPool.service';
 import { CardPool } from '../../types/cardPool.types';
-import useUserContext from '../../hooks/useUserContext';
+import useCardPool from '../../context/cardPools/useCardPool';
 
 const CreateCardPoolForm: React.FC = () => {
   const [name, setName] = useState('');
@@ -9,7 +9,7 @@ const CreateCardPoolForm: React.FC = () => {
   const [cardSets, setCardSets] = useState<string[]>([]);
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  const { setCurrentCardPool } = useUserContext();
+  const { setCurrentCardPool } = useCardPool();
 
   const handleSubmitNewCardPool = async (e: React.FormEvent) => {
     e.preventDefault();

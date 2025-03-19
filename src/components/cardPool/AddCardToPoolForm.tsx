@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
-import useUserContext from '../../hooks/useUserContext';
+import useCardPool from '../../context/cardPools/useCardPool';
 import { Card } from '../../types/card.types';
 import { addCardToCardPool } from '../../services/cardPools/cardPool.service';
-
+import { useCardLibrary } from '../../context/cardLibrary/useCardLibrary';
 const AddCardToPoolForm: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestedCards, setSuggestedCards] = useState<Card[]>([]);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
-  const { cards, currentCardPool, setCurrentCardPool } = useUserContext();
+  const { cards } = useCardLibrary();
+  const { currentCardPool, setCurrentCardPool } = useCardPool();
 
   useEffect(() => {
     if (searchTerm.length > 0) {

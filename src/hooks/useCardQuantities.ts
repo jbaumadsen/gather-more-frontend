@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import useUserContext from './useUserContext';
+import useCardPool from '../context/cardPools/useCardPool';
 import { Card } from '../types/card.types';
 import { addCardToCardPool, removeCardFromCardPool } from '../services/cardPools/cardPool.service';
 
 const useCardQuantities = () => {
-  const { currentCardPool, setCurrentCardPool } = useUserContext();
+  const { currentCardPool, setCurrentCardPool } = useCardPool();
   const [quantities, setQuantities] = useState<Record<string, number>>({});
   const [isLoading, setIsLoading] = useState<Record<string, boolean>>({});
 

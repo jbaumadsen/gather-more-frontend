@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import useUserContext from '../../hooks/useUserContext';
+import useCardPool from '../../context/cardPools/useCardPool';
 import { Card } from '../../types/card.types';
-
+import { useCardLibrary } from '../../context/cardLibrary/useCardLibrary';
 const CardPoolDisplay: React.FC = () => {
-  const { currentCardPool, cards } = useUserContext();
+  const { cards } = useCardLibrary();
+  const { currentCardPool } = useCardPool();
   const [cardPoolCards, setCardPoolCards] = useState<Card[]>([]);
 
   useEffect(() => {
