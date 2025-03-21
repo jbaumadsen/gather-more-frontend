@@ -1,7 +1,7 @@
 // hooks/useCardFilters.ts
 import { useState, useEffect, useMemo } from 'react';
-import useCardLibrary from '../context/cardLibrary/useCardLibrary';
-import useCardPool from '../context/cardPools/useCardPool';
+import useCardLibrary from '../context/useCardLibraryContext';
+import useCardPool from '../context/useCardPoolContext';
 import { Card } from '../types/card.types';
 
 // Define filter criteria interface
@@ -24,6 +24,13 @@ const useCardFilters = () => {
   const [showCardPoolOnly, setShowCardPoolOnly] = useState(true);
   const [selectedSets, setSelectedSets] = useState<Set<string>>(new Set());
   const [selectedColors, setSelectedColors] = useState<Set<string>>(new Set(['W', 'U', 'B', 'R', 'G', 'M', 'C']));
+
+  // on initial load, if !currentCardPool.cards.length, set showCardPoolOnly to false
+  useEffect(() => {
+    if (!currentCardPool?.cards.length) {
+      setShowCardPoolOnly(false);
+    }
+  }, []);
 
   // Get all available sets from cards
   const availableSets = useMemo(() => {

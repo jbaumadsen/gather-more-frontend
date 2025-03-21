@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import Papa from 'papaparse';
-import useUserContext from '../../hooks/useUserContext';
-import { useCardPool } from '../../context/cardPools/useCardPool';
-
+import useCardPoolContext from '../../context/useCardPoolContext';
+import useCardLibraryContext from '../../context/useCardLibraryContext';
 
 interface CSVCardEntry {
   name: string;
@@ -13,13 +12,13 @@ interface CSVCardEntry {
 }
 
 const CardPoolCsvUpload: React.FC = () => {
-  const { cards } = useUserContext();
+  const { cards } = useCardLibraryContext();
 
   const { 
     currentCardPool,
-    addCardsToPool,
-    isLoading: isCardPoolLoading 
-  } = useCardPool();
+    isLoading: isCardPoolLoading,
+    addCardsToPool
+  } = useCardPoolContext();
 
   const [fileName, setFileName] = useState<string>('');
   const [processing, setProcessing] = useState<boolean>(false);

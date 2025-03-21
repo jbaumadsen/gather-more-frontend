@@ -1,4 +1,4 @@
-import  useLeagueContext  from "../../hooks/useUserContext";
+import  useLeagueContext  from "../../context/useLeagueContext";
   
 const CurrentLeagueView = () => {
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import useCardPool from '../../context/cardPools/useCardPool';
+import useCardPool from '../../context/useCardPoolContext';
 import { Card } from '../../types/card.types';
-import { useCardLibrary } from '../../context/cardLibrary/useCardLibrary';
+import { useCardLibrary } from '../../context/useCardLibraryContext';
 const CardPoolDisplay: React.FC = () => {
   const { cards } = useCardLibrary();
   const { currentCardPool } = useCardPool();

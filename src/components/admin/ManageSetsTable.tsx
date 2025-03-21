@@ -1,12 +1,12 @@
 // components/sets/ManageSetsTable.tsx
 import React, { useState } from 'react';
-import useUserContext from "../../hooks/useUserContext";
+import useCardLibrary from "../../context/useCardLibraryContext";
 import ImportCardsPanel from './ImportCardsPanel';
 import SetsList from './SetsList';
 import { Card } from '../../types/card.types';
 
 const ManageSetsTable: React.FC = () => {
-  const { sets } = useUserContext();
+  const { sets } = useCardLibrary();
   const [cardsData, setCardsData] = useState<Card[] | null>(null);
   const [isDataLoaded, setIsDataLoaded] = useState<boolean>(false);
   const [isImporting, setIsImporting] = useState<boolean>(false);

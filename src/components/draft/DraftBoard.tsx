@@ -1,13 +1,26 @@
 // component for the draft board it will have the league name at the top then the list of teams with their packqueue length and draftcardgrid and teamcardgrid
 
-import useUserContext from "../../hooks/useUserContext";
+import { useEffect } from "react";
 import DraftCardGrid from "./DraftCardGrid";
 import TeamCardGrid from "../team/TeamCardGrid";
-
+import useLeagueContext from "../../context/useLeagueContext";
+import useDraftContext from "../../context/useDraftContext";
+import { useSeasonContext } from "../../context/useSeasonContext";
 const DraftBoard = () => {
-  const { currentLeague, currentDraftTeams, currentDraft } = useUserContext();
+  const { currentLeague } = useLeagueContext();
+  const { currentSeason } = useSeasonContext();
+  const { currentDraft, currentDraftTeams, getDraftData } = useDraftContext();
 
+  // if currentDraft is null then get the draft from the database
+  useEffect(() => {
+    if (currentSeason?.draft) {
+      getDraftData(currentSeason.draft);
+    }
+  }, [currentSeason]);
 
+  // console.log("currentDraftTeams in DraftBoard ln 12", currentDraftTeams);
+  // console.log("currentDraft in DraftBoard ln 13", currentDraft);
+  // console.log("currentLeague in DraftBoard ln 14", currentLeague);
   return (
     <div className="flex flex-col m-4">
       <h1 className="text-4xl font-bold">{currentLeague?.name} League</h1>

@@ -11,7 +11,10 @@ const CardItem: React.FC<CardItemProps> = ({ card }) => {
   const quantity = getQuantity(card.multiverseId);
 
   return (
-    <div className="relative border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+    <div 
+      className="relative border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all transform hover:scale-105 cursor-pointer group"
+      onClick={() => addCard(card)}
+    >
       {/* Card image or placeholder */}
       <div className="aspect-ratio-box" style={{ paddingBottom: '140%' }}>
         {card.imageUrl ? (
@@ -30,36 +33,25 @@ const CardItem: React.FC<CardItemProps> = ({ card }) => {
       
       {/* Quantity overlay */}
       <div className="absolute top-0 left-0 right-0 flex justify-between p-1 bg-black bg-opacity-60 text-white">
-        {/* <div className="text-xs font-medium truncate mr-1">{card.name}</div> */}
         <div className="text-sm font-bold">{quantity > 0 ? `x${quantity}` : ''}</div>
       </div>
       
-      {/* Control buttons */}
-      <div className="absolute bottom-0 left-0 right-0 flex justify-between p-1 bg-black bg-opacity-60">
+      {/* Remove button - only visible on hover if quantity > 0 */}
+      {quantity > 0 && (
         <button 
-          onClick={() => removeCard(card)}
-          className="w-8 h-8 rounded-full bg-red-500 text-white flex items-center justify-center transition-opacity"
-          disabled={quantity <= 0}
-          style={{ opacity: quantity <= 0 ? 0.5 : 1 }}
+          onClick={(e) => {
+            e.stopPropagation(); // Prevent triggering the parent's onClick
+            removeCard(card);
+          }}
+          className="absolute bottom-2 left-2 w-8 h-8 rounded-full bg-red-500 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
           aria-label={`Remove ${card.name}`}
         >
           <span className="text-lg font-bold">-</span>
         </button>
-        <button 
-          onClick={() => addCard(card)}
-          className="w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center"
-          aria-label={`Add ${card.name}`}
-        >
-          <span className="text-lg font-bold">+</span>
-        </button>
-      </div>
+      )}
       
-      {/* Optional mana cost display */}
-      {/* {card.manaCost && (
-        <div className="absolute top-0 right-0 p-1 bg-black bg-opacity-60 rounded-bl-md">
-          <span className="text-xs text-white">{card.manaCost}</span>
-        </div>
-      )} */}
+      {/* Hover effect overlay */}
+      <div className="absolute inset-0 bg-blue-500 bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200"></div>
     </div>
   );
 };

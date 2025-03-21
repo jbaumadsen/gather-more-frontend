@@ -1,6 +1,6 @@
 import React from 'react';
 import { CardPool } from '../../types/cardPool.types';
-import useCardPool from '../../context/cardPools/useCardPool';
+import useCardPool from '../../context/useCardPoolContext';
 
 interface CardPoolListItemProps {
   cardPool: CardPool;
@@ -15,9 +15,9 @@ const CardPoolListItem: React.FC<CardPoolListItemProps> = ({ cardPool }) => {
   }
 
   return (
-    <div className="flex flex-row justify-between">
+    // add padding to the left
+    <div className="flex flex-row justify-between hover:bg-gray-100 cursor-pointer pl-4" onClick={() => handleEditCardPool(cardPool)}>
       <span>{cardPool.name}</span>
-      <button className="bg-blue-500 text-white px-2 py-1 rounded-md" onClick={() => handleEditCardPool(cardPool)}>Edit</button>
     </div>
   );
 };

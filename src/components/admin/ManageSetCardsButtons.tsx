@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useUserContext from "../../hooks/useUserContext";
+import useUserContext from "../../context/useUserContext";
 import { SetService } from "../../services/set.service";
 import FileUploadInput from './FileUploadInput';
 import { Card } from '../../types/card.types';

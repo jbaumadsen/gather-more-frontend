@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-import useUserContext from '../hooks/useUserContext';
+import useUserContext from '../context/useUserContext';
 
 interface ProtectedRouteProps {
   element: React.ReactNode;

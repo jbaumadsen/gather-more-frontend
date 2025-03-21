@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import useCardPool from '../context/cardPools/useCardPool';
+import useCardPool from '../context/useCardPoolContext';
 import { Card } from '../types/card.types';
 import { addCardToCardPool, removeCardFromCardPool } from '../services/cardPools/cardPool.service';
 

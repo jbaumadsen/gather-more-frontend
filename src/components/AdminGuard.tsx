@@ -1,5 +1,5 @@
 
-import useUserContext from "../hooks/useUserContext";
+import useUserContext from "../context/useUserContext";
 
 const AdminGuard = ({children}: {children: React.ReactNode}) => {
   const { user } = useUserContext();

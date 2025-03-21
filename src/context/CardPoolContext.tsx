@@ -1,7 +1,7 @@
 // contexts/cardPools/CardPoolContext.tsx
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
-import { CardPool } from '../../types/cardPool.types';
-import * as cardPoolService from '../../services/cardPools/cardPool.service';
+import { CardPool } from '../types/cardPool.types';
+import * as cardPoolService from '../services/cardPools/cardPool.service';
 
 // Define the context interface
 interface ICardPoolContext {

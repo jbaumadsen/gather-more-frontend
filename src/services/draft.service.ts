@@ -29,6 +29,6 @@ export const fetchDraftData = async(draftId: string) => {
       Authorization: `Bearer ${localStorage.getItem('token')}`
     }
   });
-  // console.log("response fetchDraftData in utils", response.data);
+  console.log("response fetchDraftData in utils", response.data);
   return response.data;
 };

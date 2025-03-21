@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
-import useCardPool from '../../context/cardPools/useCardPool';
-import useCardLibrary from '../../context/cardLibrary/useCardLibrary';
+import useCardPool from '../../context/useCardPoolContext';
+import useCardLibrary from '../../context/useCardLibraryContext';
 import FilterBar from './FilterBar';
 import CardGrid from './CardGrid';
 import useCardFilters from '../../hooks/useCardFilters';

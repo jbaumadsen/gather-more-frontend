@@ -1,6 +1,6 @@
 import React from 'react';
 import CardPoolCsvUpload from './CardPoolCsvUpload';
-import useCardPool from '../../context/cardPools/useCardPool';
+import useCardPool from '../../context/useCardPoolContext';
 
 const BulkAddTab: React.FC = () => {
   const { currentCardPool } = useCardPool();

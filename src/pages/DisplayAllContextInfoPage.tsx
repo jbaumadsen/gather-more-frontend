@@ -1,29 +1,27 @@
-import React, { useContext } from 'react';
-import UserContext from '../context/UserContext';
-
+import React from 'react';
+import useUserContext from '../context/useUserContext';
+import useLeagueContext from '../context/useLeagueContext';
+import useSeasonContext from '../context/useSeasonContext';
+import useCardPoolContext from '../context/CardPoolContext';
 const ContextDisplayPage: React.FC = () => {
-  const context = useContext(UserContext);
 
-  if (!context) {
-    return (
-      <div className="flex items-center justify-center h-screen bg-gray-100">
-        <div className="text-red-500 text-lg font-semibold">
-          Error: UserContext is undefined!
-        </div>
-      </div>
-    );
-  }
+  const { user, loading, sets } = useUserContext();
+  const { ownedLeagues, invitedLeagues, currentLeague } = useLeagueContext();
+  const { seasons, currentSeason } = useSeasonContext();
+  const { cardPools } = useCardPoolContext();
 
-  const {
-    user,
-    loading,
-    sets,
-    ownedLeagues,
-    invitedLeagues,
-    seasons,
-    currentLeague,
-    currentSeason,
-  } = context;
+  // if (!context) {
+  //   return (
+  //     <div className="flex items-center justify-center h-screen bg-gray-100">
+  //       <div className="text-red-500 text-lg font-semibold">
+  //         Error: UserContext is undefined!
+  //       </div>
+  //     </div>
+  //   );
+  // }
+
+
+  
 
   return (
     <div className="p-6 bg-gray-50 min-h-screen">

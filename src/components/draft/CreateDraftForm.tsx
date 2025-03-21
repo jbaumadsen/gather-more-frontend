@@ -1,12 +1,14 @@
-import useUserContext from "../../hooks/useUserContext";
 import { createDraft } from "../../services/draft.service";
 import { Draft } from "../../types/draft.types";
 import { useState, useEffect } from "react";
 import { CardPool } from "../../types/cardPool.types";
+import useSeasonContext from "../../context/useSeasonContext";
+import useCardPoolContext from "../../context/useCardPoolContext";
 
 
 const CreateDraftForm: React.FC = () => {
-  const { currentSeason, cardPools, getSeasonData } = useUserContext();
+  const { currentSeason, getSeasonData } = useSeasonContext();
+  const { cardPools } = useCardPoolContext();
   const [selectedCardPool, setSelectedCardPool] = useState<CardPool | null>(null);
   const [packStructure, setPackStructure] = useState({rare: 1, uncommon: 2, common: 3});
   const [numberOfRounds, setNumberOfRounds] = useState<number>(3);

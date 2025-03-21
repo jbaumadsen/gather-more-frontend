@@ -19,6 +19,7 @@ const SetFilter: React.FC<SetFilterProps> = ({ selectedSets, toggleSet, availabl
     selectedSets.forEach(set => {
       toggleSet(set);
     });
+    console.log("selectedSets in SetFilter ln 22", selectedSets);
   };
 
   return (

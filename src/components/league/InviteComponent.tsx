@@ -1,9 +1,11 @@
 import { useState } from "react";
-import useUserContext from "../../hooks/useUserContext";
+import useLeagueContext from "../../context/useLeagueContext";
+import useSeasonContext from "../../context/useSeasonContext";
 import axios from "axios";  
 
 const InviteComponent = () => {
-  const { currentLeague, currentSeason } = useUserContext();
+  const { currentLeague } = useLeagueContext();
+  const { currentSeason } = useSeasonContext();
   const [inviteeEmail, setInviteeEmail] = useState("");
   const [error, setError] = useState("");
 

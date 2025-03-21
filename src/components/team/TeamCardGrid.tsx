@@ -1,10 +1,10 @@
 // a grid of cards for the team
 
-import useUserContext from "../../hooks/useUserContext";
+import useTeamContext from "../../context/useTeamContext";
 import TeamCard from "./TeamCard";
 
 const TeamCardGrid = () => {
-  const { currentUserTeam, currentTeamCards } = useUserContext();
+  const { currentUserTeam, currentTeamCards } = useTeamContext();
 
   if (!currentUserTeam) {
     return <div>Loading...</div>;

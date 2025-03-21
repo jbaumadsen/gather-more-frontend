@@ -23,3 +23,27 @@ export const fetchUserData = async (apiBaseUrl: string, token: string): Promise<
   });
   return response.data;
 };
+
+export const getAllUsers = async (apiBaseUrl: string, token: string): Promise<User[]> => {
+  const response = await axios.get(`${apiBaseUrl}/admin/users`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  return response.data;
+};
+
+export const updateUserPassword = async (
+  apiBaseUrl: string, 
+  _id: string, 
+  newPassword: string, 
+  token: string
+): Promise<{ message: string }> => {
+  console.log("id in updateUserPassword ln 44", _id);
+  console.log("newPassword in updateUserPassword ln 45", newPassword);
+  console.log("token in updateUserPassword ln 46", token);
+  const response = await axios.put(
+    `${apiBaseUrl}/admin/users/${_id}/password`, 
+    { newPassword },
+    { headers: { Authorization: `Bearer ${token}` } }
+  );
+  return response.data;
+};

@@ -11,6 +11,10 @@ const endpoints = {
       importCards: '/admin/sets/import-cards',
       delete: (id: string) => `/admin/sets/${id}`,
     },
+    users: {
+      updatePassword: (userId: string) => `/admin/users/${userId}/password`,
+      getAll: '/admin/users'
+    },
 
   },
 

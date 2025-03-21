@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { createCardPool } from '../../services/cardPools/cardPool.service';
 import { CardPool } from '../../types/cardPool.types';
-import useCardPool from '../../context/cardPools/useCardPool';
+import useCardPool from '../../context/useCardPoolContext';
 
 const CreateCardPoolForm: React.FC = () => {
   const [name, setName] = useState('');

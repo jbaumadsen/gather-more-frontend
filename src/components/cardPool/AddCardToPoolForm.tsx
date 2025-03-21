@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import useCardPool from '../../context/cardPools/useCardPool';
+import useCardPool from '../../context/useCardPoolContext';
 import { Card } from '../../types/card.types';
 import { addCardToCardPool } from '../../services/cardPools/cardPool.service';
-import { useCardLibrary } from '../../context/cardLibrary/useCardLibrary';
+import { useCardLibrary } from '../../context/useCardLibraryContext';
 const AddCardToPoolForm: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestedCards, setSuggestedCards] = useState<Card[]>([]);

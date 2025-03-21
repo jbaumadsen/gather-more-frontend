@@ -1,5 +1,5 @@
 import React from 'react';
-import useCardPool from '../../context/cardPools/useCardPool';
+import useCardPool from '../../context/useCardPoolContext';
 import AddCardToPoolForm from './AddCardToPoolForm';
 import CardPoolCsvUpload from './CardPoolCsvUpload';
 

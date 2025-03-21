@@ -1,9 +1,9 @@
 // contexts/cardLibrary/CardLibraryContext.tsx
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
-import { Card } from '../../types/card.types';
-import { Set } from '../../types/set.types';
-import { CardService } from '../../services/card.service';
-import { SetService } from '../../services/set.service';
+import { Card } from '../types/card.types';
+import { Set } from '../types/set.types';
+import { CardService } from '../services/card.service';
+import { SetService } from '../services/set.service';
 
 // Define the context interface
 interface ICardLibraryContext {

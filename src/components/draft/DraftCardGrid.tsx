@@ -1,10 +1,10 @@
 import DraftCardComponent from "./DraftCardComponent";
-import useUserContext from "../../hooks/useUserContext";
+import useDraftContext from "../../context/useDraftContext";
 import { Card } from "../../types/card.types";
 import { useState, useEffect } from "react";
 
 const DraftCardGrid = () => {
-  const { currentBoosterPackCards } = useUserContext();
+  const { currentBoosterPackCards } = useDraftContext();
   // sort cards by rarity
   const [sortedCards, setSortedCards] = useState<Card[]>([]);
 

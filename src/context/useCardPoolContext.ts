@@ -5,7 +5,7 @@ import CardPoolContext from './CardPoolContext';
 /**
  * Custom hook to use the CardPool context
  */
-export const useCardPool = () => {
+export const useCardPoolContext = () => {
   const context = useContext(CardPoolContext);
   
   if (context === undefined) {
@@ -15,4 +15,4 @@ export const useCardPool = () => {
   return context;
 };
 
-export default useCardPool;
+export default useCardPoolContext;
