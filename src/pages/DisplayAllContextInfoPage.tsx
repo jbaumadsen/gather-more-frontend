@@ -2,13 +2,12 @@ import React from 'react';
 import useUserContext from '../context/useUserContext';
 import useLeagueContext from '../context/useLeagueContext';
 import useSeasonContext from '../context/useSeasonContext';
-import useCardPoolContext from '../context/CardPoolContext';
+
 const ContextDisplayPage: React.FC = () => {
 
   const { user, loading, sets } = useUserContext();
   const { ownedLeagues, invitedLeagues, currentLeague } = useLeagueContext();
   const { seasons, currentSeason } = useSeasonContext();
-  const { cardPools } = useCardPoolContext();
 
   // if (!context) {
   //   return (

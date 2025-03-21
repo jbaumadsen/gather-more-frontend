@@ -42,9 +42,8 @@ const CreateDraftForm: React.FC = () => {
     <>
       {currentSeason?.draft ? (
         <>
-          <h3 className="text-lg font-semibold">Current Draft: {currentSeason?.draft?.name}</h3>
+          <h3 className="text-lg font-semibold">Current Draft: {currentSeason?.draft}</h3>
           <div className="text-sm text-gray-500">{JSON.stringify(currentSeason?.draft)}</div>
-          <span>{currentSeason?.draft?.name}</span>
         </>
       ) : currentSeason ? (
         <div className="flex flex-col gap-2">

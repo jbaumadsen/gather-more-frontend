@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Card } from "../../types/card.types";
 import { pickCard } from "../../services/draft.service";
 import useDraftContext from "../../context/useDraftContext";
