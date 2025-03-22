@@ -82,6 +82,23 @@ const DraftCardComponent = ({ card }: { card: Card }) => {
                   className="w-full rounded-lg shadow"
                 />
               </div>
+              <div className="mt-4 flex justify-end space-x-3">
+                  <button
+                    onClick={handleCloseModal}
+                    className="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition-colors"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    onClick={handlePickCard}
+                    disabled={isPickingCard}
+                    className={`px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors ${
+                      isPickingCard ? "opacity-70 cursor-wait" : ""
+                    }`}
+                  >
+                    {isPickingCard ? "Picking..." : "Pick This Card"}
+                  </button>
+                </div>
               
               {/* Card Details */}
               <div className="md:w-2/3">
@@ -111,6 +128,7 @@ const DraftCardComponent = ({ card }: { card: Card }) => {
                   )}
                 </div>
                 
+                
                 {card.text && (
                   <div className="mb-4">
                     <p className="text-sm text-gray-600">Card Text</p>
@@ -118,23 +136,8 @@ const DraftCardComponent = ({ card }: { card: Card }) => {
                   </div>
                 )}
                 
-                <div className="mt-4 flex justify-end space-x-3">
-                  <button
-                    onClick={handleCloseModal}
-                    className="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition-colors"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    onClick={handlePickCard}
-                    disabled={isPickingCard}
-                    className={`px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors ${
-                      isPickingCard ? "opacity-70 cursor-wait" : ""
-                    }`}
-                  >
-                    {isPickingCard ? "Picking..." : "Pick This Card"}
-                  </button>
-                </div>
+                
+                
               </div>
             </div>
           </div>
